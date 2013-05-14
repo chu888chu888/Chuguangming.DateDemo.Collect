@@ -1,0 +1,907 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)http://www.oschina.net/question/4883_9066 -->
+<html lang="zh-CN" xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.oschina.net/img/favicon.ico">
+  <title>PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET</title>
+      <link rel="stylesheet" href="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/style2013.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/channel.css" type="text/css" media="screen">
+  <link rel="stylesheet" type="text/css" href="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/jquery.fancybox-1.3.4.css" media="screen">
+  <link rel="alternate" type="application/rss+xml" title="最新代码分享列表" href="http://www.oschina.net/code/rss">
+  <link rel="alternate" type="application/rss+xml" title="开源中国 - 源码列表" href="http://www.oschina.net/code/source_rss">
+  <link rel="alternate" type="application/rss+xml" title="最新问题列表" href="http://www.oschina.net/question/rss">
+  <script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/jquery-1.7.1.min.js"></script><style type="text/css"></style>
+  <script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/jquery.form.js"></script>
+  <script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/jquery.fancybox-fixed.js"></script>
+      <link rel="stylesheet" href="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/tip-yellowsimple.css" type="text/css">
+  <script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/jquery.poshytip.min.js"></script>
+    <script type="text/javascript">
+  	g_msg = {
+};
+
+g_user = {
+	id:6763,
+	name:'十年之后',
+	login:true};  </script>
+    <script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/oschina.js"></script>
+  <script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/utils.js"></script>
+  <script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/channel.js"></script>
+      <style type="text/css">
+    body,table,input,textarea,select {font-family:微软雅黑,Verdana,sans-serif,宋体;}  
+  </style>
+  <style id="poshytip-css-tip-yellowsimple" type="text/css">div.tip-yellowsimple{visibility:hidden;position:absolute;top:0;left:0;}div.tip-yellowsimple table, div.tip-yellowsimple td{margin:0;font-family:inherit;font-size:inherit;font-weight:inherit;font-style:inherit;font-variant:inherit;}div.tip-yellowsimple td.tip-bg-image span{display:block;font:1px/1px sans-serif;height:10px;width:10px;overflow:hidden;}div.tip-yellowsimple td.tip-right{background-position:100% 0;}div.tip-yellowsimple td.tip-bottom{background-position:100% 100%;}div.tip-yellowsimple td.tip-left{background-position:0 100%;}div.tip-yellowsimple div.tip-inner{background-position:-10px -10px;}div.tip-yellowsimple div.tip-arrow{visibility:hidden;position:absolute;overflow:hidden;font:1px/1px sans-serif;}</style><link href="http://www.oschina.net/js/ke/themes/default/default.css" rel="stylesheet"><link href="http://www.oschina.net/js/ke/themes/oschina/oschina.css" rel="stylesheet"></head>
+<body>
+<div id="OSC_NavTop">
+	<div class="wp998">
+        <div id="OSC_Channels">
+        	<ul>
+        	<li class="item"><a href="http://www.oschina.net/" class="home">首页</a></li>        	<li class="item"><a href="http://www.oschina.net/project" class="project">开源软件</a></li>
+        	<li class="item control_select">
+				<a href="http://www.oschina.net/question" class="question hl">讨论区</a>				
+				<ul class="cs_content">					
+                	<li><a href="http://www.oschina.net/question?catalog=1"> 技术问答 » </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=2"> 技术分享 » </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=3"> IT大杂烩 » </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=100"> 职业生涯 » </a></li>
+                	<li><a href="http://www.oschina.net/question?catalog=4"> 站务/建议 » </a></li>
+                	<li><a href="http://www.oschina.net/alipay"> 支付宝专区 » </a></li>
+				</ul>
+			</li>
+        	<li class="item"><a href="http://www.oschina.net/code/list" class="code">代码</a></li>
+        	        	<li class="item"><a href="http://www.oschina.net/blog" class="blog">博客</a></li>
+        	<li class="item"><a href="http://www.oschina.net/translate" class="tran">翻译</a></li>
+            <li class="item"><a href="http://www.oschina.net/news" class="news">资讯</a></li>
+        	<li class="item control_select">
+				<a href="http://www.oschina.net/android" class="mobile">移动开发</a>
+				<ul class="cs_content cs_mobile">
+                	<li class="android_"><a href="http://www.oschina.net/android">Android开发专区</a></li>
+                	<li class="ios_"><a href="http://www.oschina.net/ios/home">iOS开发专区</a></li>
+                	<li class="ios_"><a href="http://www.oschina.net/ios/codingList">iOS代码库</a></li>
+                	<li class="wp7_"><a href="http://www.oschina.net/wp7">WP7开发专区</a></li>
+				</ul>
+			</li>
+        	<li class="item t_job"><a href="http://www.oschina.net/job" class="job">招聘</a></li>
+        	</ul>
+        </div>
+		<div id="OSC_Userbar">
+                		    		<em>十年之后</em>,您好 
+			<span class="control_select">
+				<a href="http://my.oschina.net/chu888chu888" id="MySpace" title="我的空间">我的空间</a>
+				<ul class="cs_content cs_myspace">
+                	<li class="msg_"><a href="http://www.oschina.net/home/go?page=admin%2Finbox">站内留言</a></li>
+                	<li class="discuss_"><a href="http://my.oschina.net/chu888chu888/home/?ft=bbs&scope=2&showme=1">我的讨论记录</a></li>
+                	<li class="code_"><a href="http://www.oschina.net/code/list_by_user?id=6763">我分享的代码</a></li>
+                	<li class="blog_"><a href="http://www.oschina.net/home/go?page=blog">我的博客</a></li>
+                	<li class="friends_"><a href="http://www.oschina.net/home/go?page=fellow">我关注的人</a></li>
+                	<li class="favorites_"><a href="http://www.oschina.net/home/go?page=favorites">我的收藏夹</a></li>
+                	<li class="profile_"><a href="http://www.oschina.net/home/go?page=admin%2Fprofile">个人资料修改</a></li>
+                	<li class="portrait_"><a href="http://www.oschina.net/home/go?page=admin%2Fportrait">更改我的头像</a></li>
+				</ul>
+			</span>&nbsp;|&nbsp;
+			<a href="http://www.oschina.net/home/go?page=admin%2Fnew-project">添加软件</a>&nbsp;|&nbsp;<a href="http://www.oschina.net/home/go?page=admin%2Fnew-release">投递新闻</a>&nbsp;|&nbsp;<a href="http://www.oschina.net/action/user/logout?session=29d01247a31059731199&goto_page=http%3A%2F%2Fwww.oschina.net%2Fquestion%2F4883_9066">退出</a>
+    				</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div id="OSC_Banner"><div class="wp998"><a href="http://www.oschina.net/" class="Logo" title="OSChina 开源中国">开源中国</a>
+<h1><a href="http://www.oschina.net/question">讨论区</a></h1>
+<dl>
+	<dt>当前位置：</dt>
+	<dd>
+					        		<a href="http://www.oschina.net/question">讨论区</a>&nbsp;»
+        		<a href="http://www.oschina.net/question?catalog=2">技术分享</a>								»&nbsp;<a href="http://www.oschina.net/p/mysql">MySQL</a>
+										</dd>
+</dl>
+<form action="http://www.oschina.net/search" class="search">
+	<input type="hidden" name="scope" value="bbs">
+	<input id="channel_q" type="text" name="q" value="" placeholder="资讯、软件、分享、代码、博客" class="TXT">
+    <button type="submit" class="BTN">搜 索</button>
+</form>
+<div class="clear"></div></div></div>
+<div id="OSC_Screen">
+	<div id="OSC_Content" class="CenterDiv">
+<script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/scrolltopcontrol.js"></script>
+<script type="text/javascript">
+  	scrolltotop.offset(100,120);
+  	scrolltotop.init();
+	$(function(){
+		$('a.ShowUserOutline img.SmallPortrait').poshytip({
+			className: 'tip-yellowsimple',
+			alignTo: 'target',
+			alignX: 'right',
+			alignY: 'inner-top',
+			offsetX: 5,
+			offsetY: 0,
+			fade: false,
+			slide: false,
+			content: function(updateCallback) {
+				ajax_get("/action/ajax/get_user_outline?id="+$(this).attr('user'),false,function(html){
+					updateCallback(html);
+				});
+				return "<div style='height:100px;'>Loading...</div>";
+			}
+		});
+	});
+	function add_to_favorite(pid,concern_it){
+			if(concern_it){
+			$("#p_attention_count").load("/action/favorite/add?mailnotify=true&type=2&id="+pid, {user: '6763'});
+			$('#attention_it').html('<a href="javascript:add_to_favorite('+pid+',false)">取消</a>');	
+		}
+		else{
+			$("#p_attention_count").load("/action/favorite/cancel?type=2&id="+pid, {user: '6763'});
+			$('#attention_it').html('<a href="javascript:add_to_favorite('+pid+',true)">收藏</a>');
+		}
+		}
+</script>
+
+
+
+<div class="Question">
+	
+	<div class="Body">
+	<div class="Title">
+		<div class="Asker"><a href="http://my.oschina.net/laogudong" class="ShowUserOutline" target="_blank"><img src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/4883_50.jpg" align="absmiddle" alt="老古董" title="老古董" class="SmallPortrait" user="4883"></a></div>
+		<div class="QTitle">
+			<h1><a href="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET.htm" hidefocus="true" name="top">PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统</a></h1>
+			<div class="stat">
+				<a href="http://my.oschina.net/laogudong" target="_blank">老古董</a>
+				发表于 2010-6-10 10:55 2年前,
+				<a href="http://www.oschina.net/question/4883_9066#answers" class="answer_count">0</a>回/1699阅											</div>
+		</div>
+		
+		<div class="clear"></div>
+	</div>
+		    	    					
+		<p style="color:#A00;font-weight:bold;margin:10px 0 0 3px;">Java、PHP、Ruby、iOS、Python 等 JetBrains 开发工具低至 219  元（7折），<a href="http://www.oschina.net/shop/jetbrains" target="_blank">详情»</a></p>
+		<div class="Content">
+						<div class="detail"><p>需求相关: 公司20人左右, 每天中午, 下午两次订餐, 都是助理在群里说"开始订餐", 然后大家报菜名, 然后助理统计, 打电话.  今天,  助理说"开始订餐, 订什么密聊...", 突然就想做这么个东西....<br><br>耗时: 4.5小时<br><br>评估: 时间太短,  不能做到很好, 没有什么输入验证之类, 就自己公司内部一点人, 用用应该没啥问题.....bug估计很多...应该是没时间改bug的,  不过有不足之处请大家提出, 互相学习.<br><br>提醒: 由于我这边和服务器有个时差, 所以, 里面有代码在倒时差.....另外,  13点之前被认为是上午, 之后包括13点被认为是下午, 一天两次.<br><br>本文涉及到的插件: jQuery, jQuery.UI,  fullcalendar<br><br>数据库创建:<br><br>CREATE TABLE USER<br>(<br> &nbsp;   ID INT  PRIMARY KEY AUTO_INCREMENT,<br> &nbsp;   NAME VARCHAR(100)<br>);<br><br>CREATE  TABLE ITEM<br>(<br> &nbsp;   ID INT PRIMARY KEY AUTO_INCREMENT,<br> &nbsp;    USER_ID INT,<br> &nbsp;   FOOD TINYBOLB,<br> &nbsp;   ORDER_TIME TIMESTAMP<br>);<br><br>ALTER  TABLE ITEM ADD FOREIGN KEY(USER_ID) REFERENCES USER(ID) ON DELETE  CASCADE;<br><br><br><strong>一个实体的基类, 封装的不太好: <span style="color: #ff0000;">Entity.php</span></strong><br><br></p>
+<dl class="code"><dt>PHP  code</dt><dd>
+<pre><div>&lt;
+
+
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+
+http://www.CodeHighlighter.com/
+
+
+
+&gt;<span style="color: #000000;"><br></span><span style="color: #000000;">&lt;?</span><span style="color: #000000;">php<br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 实体基类<br> * @author selfimpr<br> * @blog http://blog.csdn.net/lgg201<br> * @email lgg860911@yahoo.com.cn<br> *<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Entity {<br>    </span><span style="color: #0000ff;">protected</span><span style="color: #000000;"> </span><span style="color: #0000ff;">static</span><span style="color: #000000;"> </span><span style="color: #800080;">$_mapping</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">array</span><span style="color: #000000;">();<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">static</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getField(</span><span style="color: #800080;">$column_name</span><span style="color: #000000;">) {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> self</span><span style="color: #000000;">::</span><span style="color: #800080;">$_mapping</span><span style="color: #000000;">[</span><span style="color: #800080;">$column_name</span><span style="color: #000000;">] </span><span style="color: #000000;">?</span><span style="color: #000000;"> self</span><span style="color: #000000;">::</span><span style="color: #800080;">$_mapping</span><span style="color: #000000;">[</span><span style="color: #800080;">$column_name</span><span style="color: #000000;">] </span><span style="color: #000000;">:</span><span style="color: #000000;"> </span><span style="color: #800080;">$column_name</span><span style="color: #000000;">;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> set(</span><span style="color: #800080;">$field</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$value</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$method</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">set</span><span style="color: #000000;">'</span><span style="color: #000000;">.</span><span style="color: #008080;">ucwords</span><span style="color: #000000;">(</span><span style="color: #800080;">$field</span><span style="color: #000000;">);<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #800080;">$method</span><span style="color: #000000;">(</span><span style="color: #800080;">$value</span><span style="color: #000000;">);<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> get() {<br>        </span><span style="color: #800080;">$method</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">get</span><span style="color: #000000;">'</span><span style="color: #000000;">.</span><span style="color: #008080;">ucwords</span><span style="color: #000000;">(</span><span style="color: #800080;">$field</span><span style="color: #000000;">);<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #800080;">$method</span><span style="color: #000000;">();<br>    }<br>}<br></span><span style="color: #000000;">?&gt;</span><span style="color: #000000;"><br></span></div><br></pre>
+</dd></dl>
+<p><br><br><br><strong>用户类(这个里面是没有权限, 登录的概念的, 就公司内部一个小东西): <span style="color: #ff0000;">User.php</span></strong><br><br></p>
+<dl class="code"><dt>PHP code</dt><dd>
+<pre><div>&lt;
+
+
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+
+http://www.CodeHighlighter.com/
+
+
+
+&gt;<span style="color: #000000;"><br></span><span style="color: #000000;">&lt;?</span><span style="color: #000000;">php<br></span><span style="color: #0000ff;">require_once</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">./Entity.php</span><span style="color: #000000;">'</span><span style="color: #000000;">;<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 用户实体类<br> * @author selfimpr<br> * @blog http://blog.csdn.net/lgg201<br> * @email lgg860911@yahoo.com.cn<br> *<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">class</span><span style="color: #000000;"> User </span><span style="color: #0000ff;">extends</span><span style="color: #000000;"> Entity {<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$id</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$name</span><span style="color: #000000;">;<br>    <br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> User(</span><span style="color: #800080;">$id</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">NULL</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$name</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">NULL</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">id </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$id</span><span style="color: #000000;">;<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">name </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$name</span><span style="color: #000000;">;<br>    }<br>    <br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getId() {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">id;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> setId(</span><span style="color: #800080;">$id</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">id </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$id</span><span style="color: #000000;">;<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getName() {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">name;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> setName(</span><span style="color: #800080;">$name</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">name </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$name</span><span style="color: #000000;">;<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">;<br>    }<br>}<br></span><span style="color: #000000;">?&gt;</span><span style="color: #000000;"><br></span></div><br></pre>
+</dd></dl>
+<p><br><br><br><strong>订餐订单项类: <span style="color: #ff0000;">Item.php</span></strong><br><br></p>
+<dl class="code"><dt>PHP code</dt><dd>
+<pre><div>&lt;
+
+
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+
+http://www.CodeHighlighter.com/
+
+
+
+&gt;<span style="color: #000000;"><br></span><span style="color: #000000;">&lt;?</span><span style="color: #000000;">php<br></span><span style="color: #0000ff;">require_once</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">./Entity.php</span><span style="color: #000000;">'</span><span style="color: #000000;">;<br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 订餐订单<br> * @author selfimpr<br> * @blog http://blog.csdn.net/lgg201<br> * @email lgg860911@yahoo.com.cn<br> *<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Item </span><span style="color: #0000ff;">extends</span><span style="color: #000000;"> Entity {<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$id</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$user</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$food</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$orderTime</span><span style="color: #000000;">;<br>    <br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> Item(</span><span style="color: #800080;">$id</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">NULL</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$food</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">NULL</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$orderTime</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">NULL</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">id </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$id</span><span style="color: #000000;">;<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">food </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$food</span><span style="color: #000000;">;<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">orderTime </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$orderTime</span><span style="color: #000000;">;<br>    }<br>    <br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getId() {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">id;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> setId(</span><span style="color: #800080;">$id</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">id </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$id</span><span style="color: #000000;">;<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getUser() {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">user;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> setUser(</span><span style="color: #800080;">$user</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">user </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$user</span><span style="color: #000000;">;<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getFood() {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">food;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> setFood(</span><span style="color: #800080;">$food</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">food </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$food</span><span style="color: #000000;">;<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getOrderTime() {<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">orderTime;<br>    }<br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> setOrderTime(</span><span style="color: #800080;">$orderTime</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">orderTime </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$orderTime</span><span style="color: #000000;">;<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">;<br>    }<br>}<br></span><span style="color: #000000;">?&gt;</span><span style="color: #000000;"><br></span></div><br></pre>
+</dd></dl>
+<p><br><br><br><strong>数据库工具类: <span style="color: #ff0000;">mysql_util.php</span></strong><br><br></p>
+<dl class="code"><dt>PHP  code</dt><dd>
+<pre><div>&lt;
+
+
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+
+http://www.CodeHighlighter.com/
+
+
+
+&gt;<span style="color: #000000;"><br></span><span style="color: #000000;">&lt;?</span><span style="color: #000000;">php<br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * Mysql工具类<br> * @author selfimpr<br> * @blog http://blog.csdn.net/lgg201<br> * @email lgg860911@yahoo.com.cn<br> *<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">class</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;"> {<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$host</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$username</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$password</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$db_name</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">private</span><span style="color: #000000;"> </span><span style="color: #800080;">$character_set</span><span style="color: #000000;">;<br>    <br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> __construct(<br>            </span><span style="color: #800080;">$host</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">192.168.2.10</span><span style="color: #000000;">"</span><span style="color: #000000;">,</span><span style="color: #000000;"><br>            </span><span style="color: #800080;">$username</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">root</span><span style="color: #000000;">"</span><span style="color: #000000;">,</span><span style="color: #000000;"> <br>            </span><span style="color: #800080;">$password</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">jhx</span><span style="color: #000000;">"</span><span style="color: #000000;">,</span><span style="color: #000000;"> <br>            </span><span style="color: #800080;">$db_name</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">eat</span><span style="color: #000000;">"</span><span style="color: #000000;">,</span><span style="color: #000000;"> <br>            </span><span style="color: #800080;">$character_set</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">GBK</span><span style="color: #000000;">"</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">host </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$host</span><span style="color: #000000;">;<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">username </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$username</span><span style="color: #000000;">;<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">password </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$password</span><span style="color: #000000;">;<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">db_name </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$db_name</span><span style="color: #000000;">;<br>        </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">character_set </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$character_set</span><span style="color: #000000;">;<br>    }<br>    <br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getConn() {<br>        </span><span style="color: #800080;">$conn</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #008080;">mysql_connect</span><span style="color: #000000;">(</span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">host</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">username</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">password) or </span><span style="color: #0000ff;">die</span><span style="color: #000000;">(</span><span style="color: #000000;">'</span><span style="color: #000000;">数据库连接失败</span><span style="color: #000000;">'</span><span style="color: #000000;">);<br>        </span><span style="color: #008080;">mysql_select_db</span><span style="color: #000000;">(</span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">db_name</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$conn</span><span style="color: #000000;">);<br>        mysql_set_charset(</span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">character_set</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$conn</span><span style="color: #000000;">);<br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$conn</span><span style="color: #000000;">;<br>    }<br>    <br>    </span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br>     * <br>     * @param $sql 查询用的sql<br>     * @param $result 查询得到的结果集, 如果UPDATE, INSERT, DELETE 不同提供这个参数<br>     * @return SELECT 返回查询得到的条数, UPDATE, INSERT, DELETE返回bool型, 标识是否执行成功.<br>     </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br>    </span><span style="color: #0000ff;">public</span><span style="color: #000000;"> </span><span style="color: #0000ff;">function</span><span style="color: #000000;"> execute(</span><span style="color: #800080;">$sql</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$conn</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$this</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">getConn();<br>        </span><span style="color: #800080;">$resultset</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #008080;">mysql_query</span><span style="color: #000000;">(</span><span style="color: #800080;">$sql</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$conn</span><span style="color: #000000;">) or </span><span style="color: #0000ff;">die</span><span style="color: #000000;">(</span><span style="color: #008080;">mysql_error</span><span style="color: #000000;">(</span><span style="color: #800080;">$conn</span><span style="color: #000000;">));<br>        </span><span style="color: #0000ff;">if</span><span style="color: #000000;">(</span><span style="color: #000000;">!</span><span style="color: #008080;">is_bool</span><span style="color: #000000;">(</span><span style="color: #800080;">$resultset</span><span style="color: #000000;">)) {<br>            </span><span style="color: #0000ff;">while</span><span style="color: #000000;">(</span><span style="color: #800080;">$line</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #008080;">mysql_fetch_assoc</span><span style="color: #000000;">(</span><span style="color: #800080;">$resultset</span><span style="color: #000000;">)) {<br>                </span><span style="color: #800080;">$result</span><span style="color: #000000;">[] </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$line</span><span style="color: #000000;">;<br>            }<br>        } </span><span style="color: #0000ff;">else</span><span style="color: #000000;"> {<br>            </span><span style="color: #800080;">$result</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$resultset</span><span style="color: #000000;">;<br>        }<br>        <br>        </span><span style="color: #008080;">mysql_close</span><span style="color: #000000;">(</span><span style="color: #800080;">$conn</span><span style="color: #000000;">) or </span><span style="color: #0000ff;">die</span><span style="color: #000000;">(</span><span style="color: #008080;">mysql_error</span><span style="color: #000000;">(</span><span style="color: #800080;">$conn</span><span style="color: #000000;">));<br>        <br></span><span style="color: #008000;">//</span><span style="color: #008000;">        echo "【".$sql."】 excute success!&lt;br /&gt;";</span><span style="color: #008000;"><br></span><span style="color: #000000;">        <br>        </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$result</span><span style="color: #000000;">;<br>    }<br><br>}<br></span><span style="color: #000000;">?&gt;</span><span style="color: #000000;"><br></span></div><br></pre>
+</dd></dl>
+<p><br><br><br><strong>业务逻辑(没时间了就写一个文件里了): <span style="color: #ff0000;">bussiness.php</span></strong><br><br></p>
+<dl class="code"><dt>PHP code</dt><dd>
+<pre><div>&lt;
+
+
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+
+http://www.CodeHighlighter.com/
+
+
+
+&gt;<span style="color: #000000;"><br></span><span style="color: #000000;">&lt;?</span><span style="color: #000000;">php<br></span><span style="color: #0000ff;">require_once</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">./mysql_util.php</span><span style="color: #000000;">'</span><span style="color: #000000;">;<br></span><span style="color: #0000ff;">require_once</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">./User.php</span><span style="color: #000000;">'</span><span style="color: #000000;">;<br></span><span style="color: #0000ff;">require_once</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">./Item.php</span><span style="color: #000000;">'</span><span style="color: #000000;">;<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 获取当前库中所有的用户<br> * @return unknown_type<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getUsers() {<br>    </span><span style="color: #800080;">$util</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;">();<br>    </span><span style="color: #800080;">$users_data</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">SELECT * FROM USER</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">foreach</span><span style="color: #000000;">(</span><span style="color: #800080;">$users_data</span><span style="color: #000000;"> </span><span style="color: #0000ff;">as</span><span style="color: #000000;"> </span><span style="color: #800080;">$index</span><span style="color: #000000;"> </span><span style="color: #000000;">=&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">$data</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$user</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> User();<br>        </span><span style="color: #0000ff;">foreach</span><span style="color: #000000;">(</span><span style="color: #800080;">$data</span><span style="color: #000000;"> </span><span style="color: #0000ff;">as</span><span style="color: #000000;"> </span><span style="color: #800080;">$column_name</span><span style="color: #000000;"> </span><span style="color: #000000;">=&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">$value</span><span style="color: #000000;">) {<br>            </span><span style="color: #800080;">$user</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">set(User</span><span style="color: #000000;">::</span><span style="color: #000000;">getField(</span><span style="color: #800080;">$column_name</span><span style="color: #000000;">)</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$value</span><span style="color: #000000;">);<br>        }<br>        </span><span style="color: #800080;">$users</span><span style="color: #000000;">[] </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$user</span><span style="color: #000000;">;<br>    }<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$users</span><span style="color: #000000;">;<br>}<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 根据名字增加一个用户<br> * @param $name<br> * @return unknown_type<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> addUser(</span><span style="color: #800080;">$name</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$util</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;">();<br>    </span><span style="color: #800080;">$name</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #008080;">iconv</span><span style="color: #000000;">(</span><span style="color: #000000;">"</span><span style="color: #000000;">UTF-8</span><span style="color: #000000;">"</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">gbk</span><span style="color: #000000;">"</span><span style="color: #000000;"> </span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$name</span><span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">INSERT INTO USER VALUES(NULL, '</span><span style="color: #800080;">$name</span><span style="color: #000000;">')</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br>}<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 根据id删除一个用户<br> * @param $id<br> * @return unknown_type<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> deleteUser(</span><span style="color: #800080;">$id</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$util</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;">();<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">DELETE FROM USER WHERE ID = </span><span style="color: #800080;">$id</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br>}<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 根据id修改姓名<br> * @param $id<br> * @param $name<br> * @return unknown_type<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> updateUser(</span><span style="color: #800080;">$id</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$name</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$util</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;">();<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">UPDATE USER SET NAME = '</span><span style="color: #800080;">$name</span><span style="color: #000000;">' WHERE ID = </span><span style="color: #800080;">$id</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br>}<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 插入一条订餐记录<br> * @param $user_id<br> * @param $food<br> * @return unknown_type<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> addItem(</span><span style="color: #800080;">$user_id</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$food</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$ordertime</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$util</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;">();<br>    </span><span style="color: #800080;">$year</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #008080;">date</span><span style="color: #000000;">(</span><span style="color: #000000;">'</span><span style="color: #000000;">Y</span><span style="color: #000000;">'</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$ordertime</span><span style="color: #000000;">);<br>    </span><span style="color: #800080;">$month</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #008080;">date</span><span style="color: #000000;">(</span><span style="color: #000000;">'</span><span style="color: #000000;">n</span><span style="color: #000000;">'</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$ordertime</span><span style="color: #000000;">);<br>    </span><span style="color: #800080;">$day</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #008080;">date</span><span style="color: #000000;">(</span><span style="color: #000000;">'</span><span style="color: #000000;">j</span><span style="color: #000000;">'</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$ordertime</span><span style="color: #000000;">);<br>    </span><span style="color: #800080;">$hour</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> (</span><span style="color: #008080;">date</span><span style="color: #000000;">(</span><span style="color: #000000;">'</span><span style="color: #000000;">G</span><span style="color: #000000;">'</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$ordertime</span><span style="color: #000000;">) </span><span style="color: #000000;">+</span><span style="color: #000000;"> </span><span style="color: #000000;">8</span><span style="color: #000000;">) </span><span style="color: #000000;">%</span><span style="color: #000000;"> </span><span style="color: #000000;">24</span><span style="color: #000000;">;<br>    </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$hour</span><span style="color: #000000;"> </span><span style="color: #000000;">&lt;</span><span style="color: #000000;"> </span><span style="color: #000000;">13</span><span style="color: #000000;">;<br>    </span><span style="color: #800080;">$item</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> getItemByTimeAndUser(</span><span style="color: #800080;">$year</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$month</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$day</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$flag</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$user_id</span><span style="color: #000000;">);<br>    </span><span style="color: #800080;">$ordertime</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #800080;">$year</span><span style="color: #000000;">-</span><span style="color: #800080;">$month</span><span style="color: #000000;">-</span><span style="color: #800080;">$day</span><span style="color: #000000;"> </span><span style="color: #800080;">$hour</span><span style="color: #000000;">:00:00</span><span style="color: #000000;">"</span><span style="color: #000000;">;<br>    </span><span style="color: #800080;">$item</span><span style="color: #000000;"> </span><span style="color: #000000;">&amp;&amp;</span><span style="color: #000000;"> (</span><span style="color: #800080;">$item</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$item</span><span style="color: #000000;">[</span><span style="color: #000000;">0</span><span style="color: #000000;">]) </span><span style="color: #000000;">&amp;&amp;</span><span style="color: #000000;"> (</span><span style="color: #800080;">$flag</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> </span><span style="color: #000000;">?</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;"> &lt; </span><span style="color: #000000;">'</span><span style="color: #000000;"> </span><span style="color: #000000;">:</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;"> &gt;= </span><span style="color: #000000;">'</span><span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$item</span><span style="color: #000000;"><br>            </span><span style="color: #000000;">?</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">UPDATE ITEM SET FOOD = '</span><span style="color: #800080;">$food</span><span style="color: #000000;">' WHERE USER_ID = </span><span style="color: #800080;">$user_id</span><span style="color: #000000;"> AND YEAR(ORDER_TIME) = </span><span style="color: #800080;">$year</span><span style="color: #000000;"> AND MONTH(ORDER_TIME) = </span><span style="color: #800080;">$month</span><span style="color: #000000;"> AND DAY(ORDER_TIME) = </span><span style="color: #800080;">$day</span><span style="color: #000000;"> AND HOUR(ORDER_TIME) </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> 13</span><span style="color: #000000;">"</span><span style="color: #000000;">)<br>            </span><span style="color: #000000;">:</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">INSERT INTO ITEM(USER_ID, FOOD, ORDER_TIME) VALUES(</span><span style="color: #800080;">$user_id</span><span style="color: #000000;">, '</span><span style="color: #800080;">$food</span><span style="color: #000000;">', '</span><span style="color: #800080;">$ordertime</span><span style="color: #000000;">')</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br>}<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 获取某天上午或下午的订餐<br> * @param $year<br> * @param $month<br> * @param $day<br> * @param $flag 上午true下午false<br> * @return unknown_type<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getItemsByTime(</span><span style="color: #800080;">$year</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$month</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$day</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$flag</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$util</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;">();<br>    </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> </span><span style="color: #000000;">?</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;"> &lt; </span><span style="color: #000000;">'</span><span style="color: #000000;"> </span><span style="color: #000000;">:</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;"> &gt;= </span><span style="color: #000000;">'</span><span style="color: #000000;">;<br>    </span><span style="color: #800080;">$item_datas</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">SELECT ITEM.*, USER.NAME FROM ITEM JOIN USER ON ITEM.USER_ID = USER.ID WHERE YEAR(ORDER_TIME) = </span><span style="color: #800080;">$year</span><span style="color: #000000;"> AND MONTH(ORDER_TIME) = </span><span style="color: #800080;">$month</span><span style="color: #000000;"> AND DAY(ORDER_TIME) = </span><span style="color: #800080;">$day</span><span style="color: #000000;"> AND HOUR(ORDER_TIME) </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> 13</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">if</span><span style="color: #000000;">(</span><span style="color: #0000ff;">empty</span><span style="color: #000000;">(</span><span style="color: #800080;">$item_datas</span><span style="color: #000000;">)) </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #0000ff;">array</span><span style="color: #000000;">();<br>    </span><span style="color: #0000ff;">foreach</span><span style="color: #000000;">(</span><span style="color: #800080;">$item_datas</span><span style="color: #000000;"> </span><span style="color: #0000ff;">as</span><span style="color: #000000;"> </span><span style="color: #800080;">$index</span><span style="color: #000000;"> </span><span style="color: #000000;">=&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">$data</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$item</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> Item();<br>        </span><span style="color: #800080;">$items</span><span style="color: #000000;">[</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">USER_ID</span><span style="color: #000000;">'</span><span style="color: #000000;">]] </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$item</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setId(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">ID</span><span style="color: #000000;">'</span><span style="color: #000000;">])<br>                        </span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setUser(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> User(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">USER_ID</span><span style="color: #000000;">'</span><span style="color: #000000;">]</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">NAME</span><span style="color: #000000;">'</span><span style="color: #000000;">]))<br>                        </span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setFood(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">FOOD</span><span style="color: #000000;">'</span><span style="color: #000000;">])<br>                        </span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setOrderTime(</span><span style="color: #008080;">date</span><span style="color: #000000;">(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">ORDER_TIME</span><span style="color: #000000;">'</span><span style="color: #000000;">]));<br>    }<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$items</span><span style="color: #000000;">;<br>}<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 根据用户id, 时间, 获取其订饭记录<br> * @param $year<br> * @param $month<br> * @param $day<br> * @param $flag<br> * @param $user_id<br> * @return unknown_type<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #0000ff;">function</span><span style="color: #000000;"> getItemByTimeAndUser(</span><span style="color: #800080;">$year</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$month</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$day</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$flag</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$user_id</span><span style="color: #000000;">) {<br>    </span><span style="color: #800080;">$util</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> </span><span style="color: #008080;">Mysql</span><span style="color: #000000;">();<br>    </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> </span><span style="color: #000000;">?</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;"> &lt; </span><span style="color: #000000;">'</span><span style="color: #000000;"> </span><span style="color: #000000;">:</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;"> &gt;= </span><span style="color: #000000;">'</span><span style="color: #000000;">;<br>    </span><span style="color: #800080;">$item_datas</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$util</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">execute(</span><span style="color: #000000;">"</span><span style="color: #000000;">SELECT ITEM.*, USER.NAME FROM ITEM JOIN USER ON ITEM.USER_ID = USER.ID WHERE YEAR(ORDER_TIME) = </span><span style="color: #800080;">$year</span><span style="color: #000000;"> AND MONTH(ORDER_TIME) = </span><span style="color: #800080;">$month</span><span style="color: #000000;"> AND DAY(ORDER_TIME) = </span><span style="color: #800080;">$day</span><span style="color: #000000;"> AND HOUR(ORDER_TIME) </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> 13 AND ITEM.USER_ID = </span><span style="color: #800080;">$user_id</span><span style="color: #000000;">"</span><span style="color: #000000;">);<br>    </span><span style="color: #0000ff;">echo</span><span style="color: #000000;"> </span><span style="color: #000000;">"</span><span style="color: #000000;">SELECT ITEM.*, USER.NAME FROM ITEM JOIN USER ON ITEM.USER_ID = USER.ID WHERE YEAR(ORDER_TIME) = </span><span style="color: #800080;">$year</span><span style="color: #000000;"> AND MONTH(ORDER_TIME) = </span><span style="color: #800080;">$month</span><span style="color: #000000;"> AND DAY(ORDER_TIME) = </span><span style="color: #800080;">$day</span><span style="color: #000000;"> AND HOUR(ORDER_TIME) </span><span style="color: #800080;">$flag</span><span style="color: #000000;"> 13 AND ITEM.USER_ID = </span><span style="color: #800080;">$user_id</span><span style="color: #000000;">"</span><span style="color: #000000;">;<br>    </span><span style="color: #0000ff;">if</span><span style="color: #000000;">(</span><span style="color: #0000ff;">empty</span><span style="color: #000000;">(</span><span style="color: #800080;">$item_datas</span><span style="color: #000000;">)) </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #0000ff;">array</span><span style="color: #000000;">();<br>    </span><span style="color: #0000ff;">foreach</span><span style="color: #000000;">(</span><span style="color: #800080;">$item_datas</span><span style="color: #000000;"> </span><span style="color: #0000ff;">as</span><span style="color: #000000;"> </span><span style="color: #800080;">$index</span><span style="color: #000000;"> </span><span style="color: #000000;">=&gt;</span><span style="color: #000000;"> </span><span style="color: #800080;">$data</span><span style="color: #000000;">) {<br>        </span><span style="color: #800080;">$item</span><span style="color: #000000;"> </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #0000ff;">new</span><span style="color: #000000;"> Item();<br>        </span><span style="color: #800080;">$items</span><span style="color: #000000;">[] </span><span style="color: #000000;">=</span><span style="color: #000000;"> </span><span style="color: #800080;">$item</span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setId(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">ID</span><span style="color: #000000;">'</span><span style="color: #000000;">])<br>                        </span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setUser(</span><span style="color: #0000ff;">new</span><span style="color: #000000;"> User(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">USER_ID</span><span style="color: #000000;">'</span><span style="color: #000000;">]</span><span style="color: #000000;">,</span><span style="color: #000000;"> </span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">NAME</span><span style="color: #000000;">'</span><span style="color: #000000;">]))<br>                        </span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setFood(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">FOOD</span><span style="color: #000000;">'</span><span style="color: #000000;">])<br>                        </span><span style="color: #000000;">-&gt;</span><span style="color: #000000;">setOrderTime(</span><span style="color: #008080;">date</span><span style="color: #000000;">(</span><span style="color: #800080;">$data</span><span style="color: #000000;">[</span><span style="color: #000000;">'</span><span style="color: #000000;">ORDER_TIME</span><span style="color: #000000;">'</span><span style="color: #000000;">]));<br>    }<br>    </span><span style="color: #0000ff;">return</span><span style="color: #000000;"> </span><span style="color: #800080;">$items</span><span style="color: #000000;">;<br>}<br></span><span style="color: #000000;">?&gt;</span><span style="color: #000000;"><br></span></div><br></pre>
+</dd></dl>
+<p><br><br><br><strong>单元测试: <span style="color: #ff0000;">test.unit.php</span></strong><br><br></p>
+<dl class="code"><dt>PHP  code</dt><dd>
+<pre><div>&lt;
+
+
+
+Code highlighting produced by Actipro CodeHighlighter (freeware)
+
+http://www.CodeHighlighter.com/
+
+
+
+&gt;<span style="color: #000000;"><br></span><span style="color: #000000;">&lt;</span><span style="color: #000000;">meta http</span><span style="color: #000000;">-</span><span style="color: #000000;">equiv</span><span style="color: #000000;">=</span><span style="color: #000000;">"</span><span style="color: #000000;">Content-Type</span><span style="color: #000000;">"</span><span style="color: #000000;"> content</span><span style="color: #000000;">=</span><span style="color: #000000;">"</span><span style="color: #000000;">text/html; charset=UTF-8</span><span style="color: #000000;">"</span><span style="color: #000000;">&gt;</span><span style="color: #000000;"><br></span><span style="color: #000000;">&lt;?</span><span style="color: #000000;">php<br></span><span style="color: #0000ff;">require_once</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">./mysql_util.php</span><span style="color: #000000;">'</span><span style="color: #000000;">;<br></span><span style="color: #0000ff;">require_once</span><span style="color: #000000;"> </span><span style="color: #000000;">'</span><span style="color: #000000;">./bussiness.php</span><span style="color: #000000;">'</span><span style="color: #000000;">;<br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 本程序业务逻辑之下部分的单元测试<br> * @author selfimpr<br> * @blog http://blog.csdn.net/lgg201<br> * @email lgg860911@yahoo.com.cn<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br><br><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例1: 数据库连接<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">$util = new Mysql();<br>//$res = $util-&gt;execute('SHOW TABLES');<br>//print_r($res);<br>//echo '&lt;br&gt;==========数据库连接成功===========&lt;br&gt;';</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例2: 获取所有用户<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">var_dump(getUsers());</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例3: 增加用户<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">var_dump(addUser("张三"));</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例4: 删除用户<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">var_dump(deleteUser(4));</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例5: 更新用户<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">var_dump(updateUser(5, '李四'));</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例6: 插入订餐项<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">var_dump(addItem(1, '辣子鸡丁'));</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例7: 获取某天上午或下午订餐<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">var_dump(getItemsByTime(2010, 6, 4, false));</span><span style="color: #008000;"><br></span><span style="color: #000000;"><br></span><span style="color: #008000;">/*</span><span style="color: #008000;">*<br> * 测试用例8: 获取某人某天上午或下午订餐<br> </span><span style="color: #008000;">*/</span><span style="color: #000000;"><br></span><span style="color: #008000;">//</span><span style="color: #008000;">var_dump(getItemByTimeAndUser(date('Y'), date('m'), date('d'), date('H') + 8 &lt; 13, 1));</span><span style="color: #008000;"><br></span><span style="color: #000000;">?&gt;</span><span style="color: #000000;"><br></span></div><br></pre>
+</dd></dl><div class="clear"></div></div>
+						<div class="Tags">
+				<strong>标签：</strong>				
+												<a href="http://www.oschina.net/question/tag/mysql" class="tag project" title="数据库服务器 MySQL">MySQL</a> <a href="http://www.oschina.net/question/tag/jquery" class="tag project" title="Ajax框架 jQuery">jQuery</a> <a href="http://www.oschina.net/question/tag/php" class="tag project" title="动态网页脚本语言 PHP">PHP</a> <a href="http://www.oschina.net/question/tag/fullcalendar" class="tag project" title="jQuery日历插件 FullCalendar">FullCalendar</a> 											</div>
+						<div class="SameQuestions">
+			<span id="RQuestionAction">
+						<a href="javascript:make_question_more_detail(9066)">补充话题说明»</a>
+			</span></div>
+						<div class="EditLogs">
+	<ul></ul>
+</div>		</div>
+		<style type="text/css">
+		#favor_form{width:200px;}
+        #favor_form p {color:#666;}
+        #favor_form form{height:60px;width:200px;}
+        #favor_form form ._favor_input{display:block;margin:2px 0;width:199px;}
+        #favor_form form ._favor_button{float:left;padding:2px 5px;}
+        .favor_ok {text-align:center;font-size:10.5pt;width:199px;height:60px;margin-top:10px;}
+        #TagsSwitcher{cursor:pointer;float:right;margin-top:10px;}
+        #MyTags{display:none;width:199px;}
+        #MyTags a.tag {float:left; background-color: #E0EAF1;border-bottom: 1px solid #3E6D8E;border-right: 1px solid #7F9FB6;color: #3E6D8E;font-size: 8pt;line-height: 16px;margin: 2px 2px 2px 0;padding: 2px 4px;text-decoration: none;white-space: nowrap;}
+		.osc_promotion{ position: relative; display: inline-block; padding: 10px; margin: 10px 0; border: 1px solid #ccc;}
+        .osc_promotion .c{ position: absolute; right: -1px; top: -1px;}
+		.ask_toolbar {float:right;list-style: none; font-size: 12px; color: #333; height: 28px;_padding-top: 5px; overflow: hidden;margin:20px 0 10px 0;}
+        .ask_toolbar div{ float: left; margin-left: 5px; background: url("/img/ask-icon.gif") no-repeat; padding: 6px 0 6px 15px; padding-left: 15px; height: 16px;}
+        .ask_toolbar a{ height: 16px; color: #333; text-decoration: none; display:inline-block; zoom:1; vertical-align: middle; }
+        .ask_share{width: 89px;vertical-align: bottom; line-height: 15px; _line-height: 14px;}
+        .ask_share a{background: url("/img/ask-icon.gif"); width: 16px; }
+        a.ask_share_sina{ background: url("/img/ask-icon.gif") 0 -40px no-repeat; margin-left: 5px;  }
+        a.ask_share_tencent{background-position: 0 -70px; margin-left: 5px; }
+        .ask_toolbar em{ height: 28px; line-height:28px; width: 14px; display: inline-block; float: left; background: url("/img/ask-icon.gif") top right;}
+        .ask_collect a,.ask_report a, .ask_vote a, .ask_collected a{padding-left: 20px; line-height: 15px; }
+        .ask_collect a{ background: url("/img/ask-icon.gif") 0 -131px no-repeat; }
+        .ask_collected a{ background: url("/img/ask-icon.gif") 0 -100px no-repeat; }
+        div.ask_collect_count{ background: url("/img/ask-icon.gif") 0 -309px no-repeat; font-weight: bold; font-size: 14px; margin-left: 0; height: 16px;line-height: 16px;}
+        .ask_report a{ background: url("/img/ask-icon.gif") 0 -160px no-repeat;}
+        em.ask_collect_count_r{background-position: 59px -309px;}
+        .ask_vote a{background: url("/img/ask-icon.gif");}
+        		a.ask_vote_up{background-position: 3px -190px;}
+        a.ask_vote_down{background-position: 0 -280px;}
+        a.ask_vote_uped {background-position: 3px -190px;}
+        		a.ask_vote_downed {background-position: 0 -280px;}
+        .ask_vote span{ display: inline-block; margin: 0 10px; font-weight: bold; font-size: 14px; vertical-align: middle; margin-bottom: 2px; line-height: 16px;}
+		span.vote-down-count{margin:0 3px;}
+		span.vote-up-count{margin:0 3px;}
+		</style>
+		<div class="clear"></div>
+        
+				<div class="ask_toolbar">
+			<div class="ask_share"><b>分享到</b> <a class="ask_share_sina" title="分享到新浪微博" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=858381728',u=z||d.location,p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','','PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统: 需求相关: 公司20人左右, 每天中午, 下午两次订餐, 都是助理在群里说"开始订餐", 然后大家报菜名, 然后助理统计, 打电话. 今天, 助理说"开始订餐, 订什么密聊...", 突然...','','utf-8'));"></a><a class="ask_share_tencent" title="分享到腾讯微博" href="javascript:(function(){window.open('http://v.t.qq.com/share/share.php?url='+encodeURIComponent(document.location)+'&appkey=96f54f97c4de46e393c4835a266207f4&site=&title='+encodeURIComponent(document.title)+encodeURIComponent(': 需求相关: 公司20人左右, 每天中午, 下午两次订餐, 都是助理在群里说"开始订餐", 然后大家报菜名, 然后助理统计, 打电话. 今天, 助理说"开始订餐, 订什么密聊...", 突然...'),'', 'width=450, height=400, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no');}())"></a></div><em></em>
+			<div class="ask_collect"><a title="收藏此话题" id="favor_trigger" href="javascript:;">收藏</a></div><em></em>
+			<div class="ask_collect_count" id="p_favor_count">3</div><em class="ask_collect_count_r"></em>
+			<div class="ask_report"><a href="javascript:report('http://www.oschina.net/question/4883_9066',9066,2)">举报</a></div><em></em>
+			<div class="ask_vote" id="Vote">
+								        			<a id="vote_down" class="ask_vote_down" href="javascript:;" title="踩：这问题不知道在说什么，或者没什么用">踩</a>
+								<span class="vote-down-count">0</span>
+				|
+								        			<a id="vote_up" class="ask_vote_up" href="javascript:;" title="顶：这问题很有用或者很清晰明了">顶</a>
+								<span class="vote-up-count">0</span>
+			</div>
+			<em></em>
+		</div>
+		<div class="clear"></div>
+						        <div class="QuestionReplies">
+			
+        	<h2>			
+				<span class="sort">
+					<a href="http://www.oschina.net/question/4883_9066#answers" class="current">按默认排序</a>&nbsp;|
+					<a href="http://www.oschina.net/question/4883_9066?sort=time#answers">显示最新评论</a>&nbsp;|&nbsp;<a href="http://www.oschina.net/question/4883_9066#top" style="padding-left:0;">回页面顶部</a>
+				</span>
+				<a name="answers"></a>共有<em class="answer_count">0</em>个评论 <a href="http://www.oschina.net/question/4883_9066#answerform" class="answer">发表评论»</a>
+			</h2>
+			        	<ul class="list"></ul>
+				        </div> 
+		<div class="AnswerForm">
+			<div class="user"><a href="http://my.oschina.net/chu888chu888" name="answerform"><img src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/6763_50.jpg" align="absmiddle" alt="十年之后" title="十年之后" class="SmallPortrait" user="6763"></a></div>
+			<form id="form_answer" action="http://www.oschina.net/action/question/answer?question=9066" method="post">
+				<input type="hidden" name="user" value="6763">
+				<div class="ke-container ke-container-oschina" style="width: 560px;"><div style="display:block;" class="ke-toolbar" unselectable="on"><span class="ke-outline" data-name="bold" title="粗体(Ctrl+B)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-bold" unselectable="on"></span></span><span class="ke-outline" data-name="italic" title="斜体(Ctrl+I)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-italic" unselectable="on"></span></span><span class="ke-outline" data-name="underline" title="下划线(Ctrl+U)" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-underline" unselectable="on"></span></span><span class="ke-outline" data-name="strikethrough" title="删除线" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-strikethrough" unselectable="on"></span></span><span class="ke-outline" data-name="removeformat" title="删除格式" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-removeformat" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="insertorderedlist" title="编号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertorderedlist" unselectable="on"></span></span><span class="ke-outline" data-name="insertunorderedlist" title="项目符号" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-insertunorderedlist" unselectable="on"></span></span><span class="ke-outline" data-name="forecolor" title="文字颜色" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-forecolor" unselectable="on"></span></span><span class="ke-outline" data-name="hilitecolor" title="文字背景" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-hilitecolor" unselectable="on"></span></span><span class="ke-outline" data-name="fontname" title="字体" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontname" unselectable="on"></span></span><span class="ke-outline" data-name="fontsize" title="文字大小" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-fontsize" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="link" title="超级链接" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-link" unselectable="on"></span></span><span class="ke-outline" data-name="unlink" title="取消超级链接" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-unlink" unselectable="on"></span></span><span class="ke-outline" data-name="emoticons" title="插入表情" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-emoticons" unselectable="on"></span></span><span class="ke-outline" data-name="shcode" title="插入程序代码或脚本" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-shcode" unselectable="on"></span></span><span class="ke-outline" data-name="image" title="图片" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-image" unselectable="on"></span></span><span class="ke-outline" data-name="flash" title="Flash" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-flash" unselectable="on"></span></span><span class="ke-outline" data-name="quote" title="引用某段文字" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-quote" unselectable="on"></span></span><span class="ke-inline-block ke-separator"></span><span class="ke-outline" data-name="source" title="HTML代码" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-source" unselectable="on"></span></span><span class="ke-outline" data-name="about" title="关于" unselectable="on"><span class="ke-toolbar-icon ke-toolbar-icon-url ke-icon-about" unselectable="on"></span></span></div><div style="display: block; height: 121px;" class="ke-edit"><iframe class="ke-edit-iframe" hidefocus="true" frameborder="0" style="width: 100%; height: 121px;"></iframe><textarea class="ke-edit-textarea" hidefocus="true" style="width: 100%; height: 121px; display: none;"></textarea></div><div class="ke-statusbar"><span class="ke-inline-block ke-statusbar-center-icon"></span><span class="ke-inline-block ke-statusbar-right-icon" style="visibility: hidden;"></span></div></div><textarea id="txt_answner" name="body" style="width: 560px; height: 160px; display: none;"></textarea>
+				<input type="submit" value=" 发表评论 " id="FormSubmitButton" class="rndbutton">
+				<span id="form_msg" style="display:none;"></span>
+				<br><br>
+				<a href="http://www.oschina.net/question/4883_9066#answers">回评论顶部</a>&nbsp;|&nbsp;<a href="http://www.oschina.net/question/4883_9066#top">回页面顶部</a>
+			</form>
+			<div class="clear"></div>
+			<script>			
+            $('#form_answer').ajaxForm({
+            	dataType: 'json',
+        		beforeSerialize: function($form, options) { 
+        			editor.sync();           
+                },
+        		beforeSubmit: function(){
+        			$('#FormSubmitButton').attr('disabled','disabled');
+        			$('#form_msg').html("<span class='ajax_processing'>正在提交评论，请稍候...</span>");	
+        			$('#form_msg').show();	
+        		},
+                success: function(json) {
+        			$('#FormSubmitButton').removeAttr('disabled');
+            		if(json.msg){
+        				$('#form_msg').html("<span class='error_msg'>"+json.msg+"</span>");
+        				$('#form_msg').show();
+        			}
+            		else if(json.id){
+            			ajax_get("/question/show_answer?_answer_id="+json.id, true, function(data){
+        					            				$('.QuestionReplies ul.list').append(data);
+        					        					editor.html('');
+        					$('.answer_count').html(json.answer_count);
+            			}); 				
+        				$('#form_msg').hide();
+            		}
+                }
+            });
+			</script>
+		</div>
+	</div>	
+	<script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/brush.js"></script>
+<link type="text/css" rel="stylesheet" href="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/shCore.css">
+<link type="text/css" rel="stylesheet" href="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/shThemeDefault.css">
+<script type="text/javascript"><!--
+$(document).ready(function(){
+	SyntaxHighlighter.config.clipboardSwf = '/js/syntax-highlighter-2.1.382/scripts/clipboard.swf';
+	SyntaxHighlighter.all();
+});
+//-->
+</script>
+	<div class="QuestionRelations">
+	
+		<div id="QuestionWizard">
+			有什么技术问题吗？
+			<a href="http://www.oschina.net/question/ask" class="rndbutton"><span>我要提问</span></a>
+			<div class="clear"></div>
+		</div>
+		
+						<div id="OtherQuestionsOfUser" class="Qlist">
+			<strong><a href="http://my.oschina.net/laogudong/?ft=bbs&scope=2&showme=1" class="more">全部(19)...</a><em>老古董</em>的其他问题</strong>
+			<ul>
+						<li><a href="http://www.oschina.net/question/4883_45513" title="大型电子商务网站架构之-前端优化">大型电子商务网站架构之-前端优化</a><span class="date">(0回/353阅,1年前)</span></li>						<li><a href="http://www.oschina.net/question/4883_45161" title="服务器物理内存使用量达到95%，对性能的影响。">服务器物理内存使用量达到95%，对性能的影响。</a><span class="date">(8回/861阅,1年前)</span></li>						<li><a href="http://www.oschina.net/question/4883_26096" title="求强制链接到指定浏览器的方法">求强制链接到指定浏览器的方法</a><span class="date">(1回/174阅,1年前)</span></li>						<li><a href="http://www.oschina.net/question/4883_26072" title="如何关闭Android手机嘛？">如何关闭Android手机嘛？</a><span class="date">(2回/283阅,1年前)</span></li>						<li><a href="http://www.oschina.net/question/4883_25535" title="如何编辑PDF文件内容？">如何编辑PDF文件内容？</a><span class="date">(1回/669阅,1年前)</span></li>						</ul>
+		</div>
+				<div style="text-align:center;margin-top:20px;">
+		<script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/question.js"></script>
+		</div>
+		
+		<div id="Similarity" class="Qlist">
+			<strong>类似的话题</strong>
+			<ul>
+        				</ul>
+		</div>		
+	</div>
+	<div class="clear"></div>   
+</div>
+<script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/kindeditor-min.js" charset="utf-8"></script>
+<script type="text/javascript">
+<!--
+var editor;
+KindEditor.ready(function(K) {
+    editor = K.create('#txt_answner', {
+		themeType : 'oschina',
+		resizeType : 1,
+		urlType: 'domain',
+		shadowMode : false,
+		allowPreviewEmoticons : false,
+		allowImageUpload : true,
+		allowFlashUpload : false,
+		cssPath : '/css/ke-oschina.css',
+		uploadJson : '/action/blog/upload_img',
+		afterCreate : function(){
+			/*
+			K.ctrl(this.edit.iframe.get(0).contentWindow.document, 13, function() {
+				$("#txt_answner").parent().submit();
+			});
+			*/
+			$(this.edit.iframe.get(0).contentWindow.document).keydown(function(e) {
+				if ((e.ctrlKey || e.metaKey) && e.which == 13 && !e.shiftKey && !e.altKey){
+					$("#txt_answner").parent().submit();
+				}
+			});
+		},
+		afterChange : function() {
+			this.sync();
+		},
+		items : ['bold', 'italic', 'underline', 'strikethrough', 'removeformat','|','insertorderedlist', 'insertunorderedlist', 
+				 'forecolor', 'hilitecolor', 'fontname', 'fontsize',  '|', 'link', 'unlink', 'emoticons', 
+				 'shcode', 'image', 'flash', 'quote', '|', 'source','about'],
+		htmlTags:
+		{
+			script : ['src'],
+            font : ['color', 'size', 'face', '.background-color'],
+            span : [
+                    '.color', '.background-color', '.font-size', '.font-family', '.background',
+                    '.font-weight', '.font-style', '.text-decoration', '.vertical-align', '.line-height'
+            ],
+            div : [
+                    'class', 'align', '.border', '.margin', '.padding', '.text-align', '.color',
+                    '.background-color', '.font-size', '.font-family', '.font-weight', '.background',
+                    '.font-style', '.text-decoration', '.vertical-align', '.margin-left'
+            ],
+            table: [
+                    'border', 'cellspacing', 'cellpadding', 'width', 'height', 'align', 'bordercolor',
+                    '.padding', '.margin', '.border', 'bgcolor', '.text-align', '.color', '.background-color',
+                    '.font-size', '.font-family', '.font-weight', '.font-style', '.text-decoration', '.background',
+                    '.width', '.height', '.border-collapse'
+            ],
+            'td,th': [
+                    'align', 'valign', 'width', 'height', 'colspan', 'rowspan', 'bgcolor',
+                    '.text-align', '.color', '.background-color', '.font-size', '.font-family', '.font-weight',
+                    '.font-style', '.text-decoration', '.vertical-align', '.background', '.border'
+            ],
+            a : ['href', 'target', 'name'],
+            embed : ['src', 'width', 'height', 'type', 'loop', 'autostart', 'quality', '.width', '.height', 'align', 'allowscriptaccess'],
+            img : ['src', 'width', 'height', 'border', 'alt', 'title', 'align', '.width', '.height', '.border'],
+            'p,ol,ul,li,blockquote,h1,h2,h3,h4,h5,h6' : [
+                    'align', '.text-align', '.color', '.background-color', '.font-size', '.font-family', '.background',
+                    '.font-weight', '.font-style', '.text-decoration', '.vertical-align', '.text-indent', '.margin-left'
+            ],
+            pre : ['class'],
+            hr : ['class', '.page-break-after'],
+            'br,tbody,tr,strong,b,sub,sup,em,i,u,strike,s,del' : []
+		}
+    });
+});
+//-->
+</script>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="/js/minmax.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/question"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function() {
+	$('.Answer .replies li').hover(
+		function(){$(this).addClass('hover');},
+		function(){$(this).removeClass('hover');}
+	);	
+	
+    $('.detail img').css('cursor','pointer');
+    jQuery.each($('.detail img'),function(idx,v){
+        if(!$(v).parent().is("a")) {
+            $(v).wrap("<a href='"+$(this).attr('src')+"' target='_blank'></a>");
+        }
+    });
+	
+	$('#c').bind('mouseover mouseout',function(){
+		$('#c_on').toggle();
+		$('#c_off').toggle();
+	});
+	
+	$('#favor_trigger').click(function(){
+			add_to_favor(9066,2);
+		});
+});
+function ask_too(qid, ask){
+	ajax_post("/action/question/ask_too?id="+qid+"&ask="+ask,"",function(html){
+		json = eval('('+html+')');
+		if(json.asker_count >= 0){
+			$('#c_asker_count').html(json.asker_count);
+			if(json.ask_mode)
+				$('#RQuestionAction').html("<span class='rect'>已问同一问题 | <a href='javascript:ask_too(9066,false)'>取消？</a></span>");
+			else
+				$('#RQuestionAction').html("<a href='javascript:ask_too(9066,true)' class='rndbutton'><span>我想问同样的问题</span></a>");			
+		}
+		else{
+			$('#RQuestionAction').poshytip({
+				className: 'tip-yellowsimple',
+				content: json.msg,
+				showOn: 'none',
+				alignTo: 'target',
+				alignX: 'center',
+				alignY: 'top',
+				offsetY: 6
+			});
+			$('#RQuestionAction').poshytip('show');
+			var t = setTimeout(function(){
+				clearTimeout(t);
+				$('#RQuestionAction').poshytip('destroy');
+			},4000);
+		}
+	});
+}
+function delete_q(qid){
+	if(!confirm("您确认要删除此问题吗，删除的数据不可恢复？"))
+		return ;
+		ajax_post("/action/question/delete?id="+qid+"&hash=125732775","",function(html){
+		if(html.length>0)
+			alert(html);
+		else{
+			location.href = "/question";
+		}
+	});
+}
+function edit_answer(aid){
+	location.href="/question/edit_answer?id="+aid;
+}
+function delete_answer(aid,hash){
+	if(!confirm("您确认要删除此答案吗，删除的数据不可恢复？"))
+		return ;
+	ajax_post("/action/question/delete_answer?id="+aid+"&hash="+hash,"",function(html){
+		if(html.length>0)
+			alert(html);
+		else{
+			$('#answer_'+aid).fadeOut();
+		}
+	});
+}
+function delete_post_reply(aid,hash){
+	if(!confirm("您确认要删除此评论吗，删除的数据不可恢复？"))
+		return ;
+	ajax_post("/action/question/delete_answer?id="+aid+"&hash="+hash,"",function(html){
+		if(html.length>0)
+			alert(html);
+		else{
+			$('#PostReply_'+aid).fadeOut();
+		}
+	});
+}
+function delete_q_rpl(qid, rid){
+	if(!confirm("删除补充说明会被扣威望值，是否继续？"))
+		return ;
+	ajax_post("/action/question/delete_detail?id="+rid,"",function(html){
+		if(html.length>0)
+			alert(html);
+		else
+			$("#q_reply_"+rid).fadeOut();
+	});
+}
+function close_tip(tid){$('#'+tid).poshytip('destroy');}
+//答案投票
+function vote_answer(qid, vote_up, need_confirm){
+	if(need_confirm && !vote_up){
+		if(!$('#a_post_votedown_' + qid).hasClass('bold')){
+			var vote_down_confirm_msg = "<p>此操作将会扣掉你1个积分，是否继续？</p><p style='margin-top:10px;'><a href='javascript:vote_answer("+qid+",false,false)' class='rbtn' style='margin:0 10px 0 50px;'><span>确定</span></a><a href=\"javascript:close_tip('a_post_votedown_" + qid +"')\" class='rbtn'><span>取消</span></a></p>";			
+			$('#a_post_votedown_' + qid).poshytip({
+				className: 'tip-yellowsimple',
+				content: vote_down_confirm_msg,
+				showOn: 'none',
+				slide: false,
+				fade: false,
+				alignTo: 'target',
+				alignX: 'center',
+				offsetY: 8
+			});
+			$('#a_post_votedown_' + qid).poshytip('show');
+			return;
+		}
+	}
+	if(!need_confirm){
+		$('#a_post_votedown_' + qid).poshytip('destroy');
+	}
+	ajax_post("/action/question/vote_answer?id="+qid+"&vote="+vote_up+"&user=6763","",function(data){
+		json = eval('('+data+')');
+		if(json.msg){
+			var aid = vote_up?"a_post_voteup_":"a_post_votedown_";
+			aid += qid;
+			$('#'+aid).poshytip({
+				className: 'tip-yellowsimple',
+				content: json.msg,
+				showOn: 'none',
+				alignTo: 'target',
+				alignX: 'center',
+				alignY: 'top',
+				offsetY: 6
+			});
+			$('#'+aid).poshytip('show');
+			var t = setTimeout(function(){
+				clearTimeout(t);
+				$('#'+aid).poshytip('destroy');
+			},2000);
+			//jQuery.fancybox("<div class='error_box'>"+json.msg+"</div>");
+		}
+		else{
+			if(vote_up){
+				$('#post_voteup_'+qid).html('('+json.vote+')');
+				$('#a_post_voteup_'+qid).toggleClass('bold');
+			}
+			else{
+				$('#post_votedown_'+qid).html('('+json.vote+')');
+				$('#a_post_votedown_'+qid).toggleClass('bold');
+			}
+		}
+	});
+}
+//问题投票 
+$('#vote_up').click(function(){
+	if(this.clickTimeout){
+        // 双击
+        clearTimeout(this.clickTimeout);
+        this.clickTimeout = null;
+		alert("不用那么费劲啦，点击一下就够了:)");
+    }
+    else{
+        // 单击
+        var elem = this;
+        this.clickTimeout = setTimeout(function(){
+            // 执行点击动作
+            elem.clickTimeout = null;
+			vote_question(9066,true, true);
+        }, 250);
+    }
+    //阻止链接onclick时的默认行为
+    return false;
+});
+$('#vote_down').click(function(){
+	vote_question(9066,false, true);
+	/*
+	if(this.clickTimeout){
+        // 双击
+        clearTimeout(this.clickTimeout);
+        this.clickTimeout = null;
+		alert("不用那么费劲啦，点击一下就够了:)");
+    }
+    else{
+        // 单击
+        var elem = this;
+        this.clickTimeout = setTimeout(function(){
+            // 执行点击动作
+            elem.clickTimeout = null;
+			vote_question(9066,false, true);
+        }, 250);
+    }
+    //阻止链接onclick时的默认行为
+	*/
+    return false;
+});
+function vote_question(qid, vote_up, need_confirm){
+	if(need_confirm && !vote_up){
+		if($('#Vote #vote_down').hasClass('ask_vote_down')){
+			var vote_down_confirm_msg = "<p>踩问题将会扣掉你1个积分，是否继续？</p><p style='margin-top:10px;'><a href='javascript:vote_question(9066,false,false)' class='rbtn' style='margin-right:10px;'><span>确定</span></a><a href=\"javascript:close_tip('vote_down')\" class='rbtn'><span>取消</span></a></p>";
+			$('#Vote #vote_down').poshytip({
+				className: 'tip-yellowsimple',
+				content: vote_down_confirm_msg,
+				slide: false,
+				fade: false,
+				showOn: 'none',
+				alignTo: 'target',
+				alignX: 'inner-right',
+				alignY: 'bottom',
+				offsetX: -30,
+				offsetY: 15
+			});
+			$('#Vote #vote_down').poshytip('show');
+			return;
+		}
+	}
+	if(!need_confirm){
+		$('#Vote #vote_down').poshytip('destroy');
+	}
+	ajax_post("/action/question/vote?user=6763&id="+qid+"&vote="+vote_up,"",function(data){
+		json = eval('('+data+')');
+		if(json.msg){
+			var aid = vote_up?"vote_up":"vote_down";
+			$('#'+aid).poshytip({
+				className: 'tip-yellowsimple',
+				content: json.msg,
+				showOn: 'none',
+				alignTo: 'target',
+				alignX: 'inner-right',
+				alignY: 'bottom',
+				offsetX: 5,
+				offsetX: -35
+			});
+			$('#'+aid).poshytip('show');
+			var t = setTimeout(function(){
+				clearTimeout(t);
+				$('#'+aid).poshytip('destroy');
+			},2000);
+		}
+		else{
+						if(vote_up){
+				$('#Vote .vote-up-count').html(json.vote_up);
+				$('#Vote #vote_up').toggleClass('ask_vote_up');
+				$('#Vote #vote_up').toggleClass('ask_vote_uped');
+			}
+			else{
+				$('#Vote .vote-down-count').html(json.vote_down);
+				$('#Vote #vote_down').toggleClass('ask_vote_down');
+				$('#Vote #vote_down').toggleClass('ask_vote_downed');
+			}
+		}
+	});
+}
+//评论答案
+function reply_to_post(postid,uid){
+	popup("/action/ajax/reply_to_post?id=" + postid + "&refer="+uid);
+	}
+
+function show_rp_next(postid,current,total){
+	if(current < total){
+		var next_page = current + 1;
+    	var url = "/question/post_replies?answer="+postid+"&rp="+next_page;
+    	ajax_post(url,"",function(html){
+    		$('#PostReplies_'+postid).html(html);
+				addRepliesHoverEvent();
+			});
+	}
+}
+
+function addRepliesHoverEvent(){
+	$("li [id ^= 'PostReply']").hover(function(){
+		$(this).addClass("hover");
+	},function(){
+		$(this).removeClass("hover");
+	});
+}
+
+function show_rp_prev(postid,current,total){
+	if(current > 1){
+		var next_page = current - 1;
+    	var url = "/question/post_replies?answer="+postid+"&rp="+next_page;
+    	ajax_post(url,"",function(html){
+    		$('#PostReplies_'+postid).html(html);
+			addRepliesHoverEvent();
+    	});
+	}
+}
+function mark_as_top(qid, as_top) {
+	var args = "id="+qid+"&top="+as_top;
+	ajax_post("/action/question/mark_as_top",args,function(html){
+		alert(html);
+	});
+}
+function mark_as_best(postid, is_best){
+	var args = "id="+postid+"&best="+(is_best?1:0);
+	ajax_post("/action/question/mark_as_best",args,function(html){
+    	if(html.length>0){
+    		$('#best_answer_'+postid).poshytip({
+    			className: 'tip-yellowsimple',
+    			content: html,
+    			showOn: 'none',
+    			alignTo: 'target',
+    			alignX: 'center',
+    			alignY: 'top',
+    			offsetY: 6
+    		});
+    		$('#best_answer_'+postid).poshytip('show');
+    		var t = setTimeout(function(){
+    			clearTimeout(t);
+    			$('#best_answer_'+postid).poshytip('destroy');
+    		},2000);
+    	}
+    	else{
+			if(is_best)
+				$('#answer_'+postid).addClass('Best');
+			else
+				$('#answer_'+postid).removeClass('Best');
+    	}
+	});
+}
+function edit_tags(qid){
+	popup("/question/edit_tags?question="+qid);
+}
+function edit_catalogs(qid){
+	popup("/admin/catalog/set-catalogs?parent=1&type=2&id="+qid);
+}
+function event_apply(event_id){	
+	popup("/action/ajax/event_apply","id="+event_id);
+}
+function cancel_apply(event_id){
+	if(confirm("您确认要取消参加此次活动吗？")){
+		ajax_post("/action/event/cancel","event="+event_id,function(html){
+			if(html.length>0)
+				alert(html);
+			else
+				alert('已取消参加此次活动，感谢您的支持:)');
+		});
+	}
+}
+
+var favor_ok = "<p class='favor_ok'>已成功添加到收藏夹<br/><br/> <a href='http://my.oschina.net/chu888chu888/favorites?type=$DAISY_OBJ_TYPE'>我的收藏夹</a> | <a href='javascript:close_favor()'>关闭</a></p>";
+function delete_favor(obi_id, obj_type){
+	if(!confirm('确定取消收藏？')) return;
+	$.post("/action/favorite/cancel?type="+obj_type+"&id="+obi_id+"&user=6763",function(html){
+		$('#favor_trigger').parent('div').removeClass('ask_collected').addClass('ask_collect');
+		$('#favor_trigger').attr('title','添加到收藏');
+    	$('#p_favor_count').html(html);
+		$('#favor_trigger').unbind('click');
+		$('#favor_trigger').click(function(){add_to_favor(9066,2);});
+	});
+}
+function add_to_favor(obj_id, obj_type){
+    var dlg_favor = "<div id='favor_form'><p>多个标签使用逗号(,)隔开，最多三个</p><form action='/action/favorite/add?user=6763' height='60px' width='200px' method='POST'>";
+	dlg_favor += "<input type='hidden' name='id' value='"+obj_id+"'/>";
+	dlg_favor += "<input type='hidden' name='type' value='"+obj_type+"'/>";
+	dlg_favor += "<input type='text' name='tags' size='25' class='_favor_input' id='_favor_tags'/>";
+	dlg_favor += "<input type='submit' value='收藏' class='_favor_button'/><input type='button' value='取消' onclick='close_favor();' class='_favor_button'/><a id='TagsSwitcher' state='off'>选取标签↓</a></form>";
+	dlg_favor += "<div id='MyTags' ></div></div>";
+    $('#favor_trigger').poshytip('destroy');
+    $('#favor_trigger').poshytip({
+    	className: 'tip-yellowsimple',
+    	content: dlg_favor,
+    	showOn: 'none',
+    	alignTo: 'target',	
+		alignX: 'inner-right',
+		alignY: 'bottom',
+		offsetX: -20,
+		offsetY: 15
+    });
+    $('#favor_trigger').poshytip('show');
+	$('#_favor_tags').focus();
+	$('#favor_form form').ajaxForm({
+		success: function(html) {
+			$('#favor_trigger').parent('div').removeClass('ask_collect').addClass('ask_collected');
+			$('#favor_trigger').attr('title','取消收藏');
+			$('#p_favor_count').html(html);
+			$('#favor_trigger').unbind('click');
+			$('#favor_trigger').click(function(){delete_favor(9066,2);});
+			$('#favor_form').html(favor_ok);
+			setTimeout("close_favor()",3000);
+		}
+	});
+	$("#TagsSwitcher").one("click",function(){
+		//加载标签数据
+		$("#MyTags").load('/action/ajax/get_my_tags');
+       	$("#MyTags").toggle();
+		$(this).html("收起标签↑");
+        $(this).attr("state",'on');
+        $(this).click(function(){
+        	$("#MyTags").toggle();
+        	var state = $(this).attr("state");
+        	if(state=='off'){
+        		$(this).html("收起标签↑");
+        		$(this).attr("state",'on');
+        	}else{
+        		$(this).html("选取标签↓");
+        		$(this).attr("state",'off');
+        	}
+        });
+	});
+
+}
+function close_favor(elem_id){
+    $('#favor_trigger').poshytip('destroy');
+}
+function setTag(tv){
+	var t = $("._favor_input");
+	var value = t.val();
+	if(value!="")
+		t.val(value+","+tv);
+	else
+		t.val(tv)
+}
+//-->
+</script><div class="clear"></div></div>
+	<div id="OSC_Footer" class="CenterDiv"><style>
+.oscapp {text-align:left; width:220px;}
+.oscapp span {float:left;width:140px;}
+.oscapp a {float:left;text-indent:-9999em;width:16px;margin-left:8px;}
+.oscapp a.android {background:url('/img/android.gif') no-repeat left center;}
+.oscapp a.iphone {background:url('/img/iphone.gif') no-repeat left center;}
+.oscapp a.wp7 {background:url('/img/wp7.gif') no-repeat left center;}
+</style>
+<table width="100%"><tbody><tr>
+<td align="left">© 开源中国(OsChina.NET) | <a href="http://www.oschina.net/home/about">关于我们</a> | <a href="mailto:oschina.net@gmail.com">广告联系</a> | <a href="http://weibo.com/oschina2010" target="_blank">@新浪微博</a> | <a href="http://m.oschina.net/">开源中国手机版</a> | <a href="http://www.miitbeian.gov.cn/" target="_blank" style="color:#737573;text-decoration:none;">粤ICP备12009483号-3</a></td>
+<td class="oscapp">
+	<span>开源中国手机客户端：</span>
+	<a href="http://www.oschina.net/app" class="android" title="Android客户端">Android</a>
+	<a href="http://www.oschina.net/app" class="iphone" title="iPhone 客户端">iPhone</a>
+	<a href="http://www.oschina.net/app" class="wp7" title="Windows Phone 客户端">WP7</a>
+</td>
+</tr>
+</tbody></table>
+<script type="text/javascript">
+<!--
+if (top.location != self.location)top.location=self.location;
+//-->
+</script></div>
+</div>
+
+
+<!-- Generated by OsChina.NET (init:1[ms],page:66[ms],ip:175.170.162.75) --><div id="fancybox-tmp"></div><div id="fancybox-loading"><div></div></div><div id="fancybox-overlay"></div><div id="fancybox-wrap"><div id="fancybox-outer"><div class="fancybox-bg" id="fancybox-bg-n"></div><div class="fancybox-bg" id="fancybox-bg-ne"></div><div class="fancybox-bg" id="fancybox-bg-e"></div><div class="fancybox-bg" id="fancybox-bg-se"></div><div class="fancybox-bg" id="fancybox-bg-s"></div><div class="fancybox-bg" id="fancybox-bg-sw"></div><div class="fancybox-bg" id="fancybox-bg-w"></div><div class="fancybox-bg" id="fancybox-bg-nw"></div><div id="fancybox-content"></div><a id="fancybox-close"></a><div id="fancybox-title"></div><a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a><a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a></div></div><div id="topcontrol" style="position: fixed; bottom: 120px; right: 100px; cursor: pointer;" title="回到顶部"><img src="./PHP+Mysql+jQuery+fullcalendar实现的微型公司内部订餐系统 - 开源中国 OSChina.NET_files/gotop.gif" style="width:31px; height:31px;"></div></body></html>

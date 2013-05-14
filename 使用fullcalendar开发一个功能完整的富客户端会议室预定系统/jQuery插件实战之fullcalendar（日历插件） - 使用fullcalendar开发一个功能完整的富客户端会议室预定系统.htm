@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html -->
+<html lang="zh"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+		<title>jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统</title>
+		<link type="text/css" rel="stylesheet" href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/meshcms.css"><link type="text/css" rel="stylesheet" href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/main.css">
+
+		
+
+<meta name="description" content="jQuery插件实战之Fullcalendar - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统">
+<meta name="keywords" content="日期系统, 日历查看, 预定系统,会议室预定,日历插件,fullcalendar, jQuery, jQuery插件, jQueryUI, Timepicker, Datepicker">
+<meta http-equiv="Content-Language" content="zh"> 	
+		
+		<meta name="UYId" content="/technology/jquery/devappwithfullcanlendar/index.html">
+		<meta name="author" content="GBin1中文互联 (http://www.gbin1.com)">
+		<meta name="google-site-verification" content="rOFOuV5VrNVRAKcmiqkjCk4vGj6JtDKfvcQU-mQLLdA">
+		<meta name="geo.region" content="CN-11">
+		<meta name="geo.placename" content="beijing">
+		<meta name="geo.position" content="39.904214;116.407413">
+		<style type="text/css"></style><meta name="ICBM" content="39.904214, 116.407413">
+		<link rel="shortcut icon" href="http://www.gbin1.com/gbin1/common/images/gbin1.ico">
+		<link rel="stylesheet" type="text/css" href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/superfish.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/superfish-navbar.css" media="screen">
+		<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript" async="" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/ga.js"></script><script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jquery-1.4.4.min.js"></script>
+		<!--[if IE 6]>
+		<script type="text/javascript" src="/gbin1/common/js/supersleight.min.js"></script>
+		<![endif]-->
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/hoverIntent.js"></script>
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/superfish.js"></script>
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jquery.easing.min.js"></script>	
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jquery.lavalamp.min.js"></script>	
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/scrolltopcontrol.js"></script>	
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jquery.cookie.js"></script>
+		<script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/waypoints.min.js"></script>
+		<script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/gbin1common.js"></script>
+		<script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/gbin12column.js"></script>
+
+		<script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jquery.dataTables.css" media="screen">		
+		<script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jquery.flippy.min.js" type="text/javascript"></script>		
+<script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/logger.js"></script><link href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/bdsstyle.css" rel="stylesheet" type="text/css"></head>
+<body><iframe style="display: none;" frameborder="0"></iframe><div id="bdshare_s" style="display: block;"><iframe id="bdsIfr" style="position:absolute;display:none;z-index:9999;" frameborder="0"></iframe><div id="bdshare_l" style="display: none;"><div id="bdshare_l_c"><h6>分享到</h6><ul><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_mshare mshare">一键分享</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_qzone qqkj">QQ空间</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_tsina xlwb">新浪微博</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_baidu bdsc">百度搜藏</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_renren rrw">人人网</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_tqq txwb">腾讯微博</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_bdxc bdxc">百度相册</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_kaixin001 kxw">开心网</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_tqf txpy">腾讯朋友</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_tieba bdtb">百度贴吧</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_douban db">豆瓣网</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_tsohu shwb">搜狐微博</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_bdhome bdhome">百度新首页</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_sqq sqq">QQ好友</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_thx thx">和讯微博</a></li><li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="bds_more">更多...</a></li></ul><p><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" class="goWebsite">百度分享</a></p></div></div></div>
+
+   
+
+<div id="blog">
+<div class="container">
+	<header>
+		<a title="gbin1" href="http://www.gbin1.com/">
+			<img id="logo" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/logo.png" alt="www.gbin1.com logo">
+		</a>
+		<nav>
+			
+<ul class="gbin1Style">
+  <li class="current"><a href="http://www.gbin1.com/">GB&#8226;首页</a>
+  </li>
+  <li><a href="http://www.gbin1.com/bloghome.html">GB&#8226;博客</a>
+  </li>
+  <li><a href="http://www.gbin1.com/tutorials">专题&#8226;教程</a>
+  </li>
+  <li><a href="http://www.gbin1.com/technology/" class="selected">技术&#8226;开发</a>
+  </li>
+  <li><a href="http://www.gbin1.com/tools">设计&#8226;界面</a>
+  </li>
+  <li><a href="http://www.gbin1.com/internet">新闻&#8226;快讯</a>
+  </li>
+  <li><a href="http://www.gbin1.com/portfolio">关于&#8226;工具</a>
+  </li>
+<li class="back" style="left: 0px; width: 103px;"><div class="left"></div></li></ul>
+		</nav>
+	</header>	
+	<div class="content">
+		<div style="position:absolute;left:-30px;top:0;width:35px;height:135px;padding:0px;border:1px solid #111;float:right;background:#404040;text-align:center;border-radius: 5px 5px 5px 5px;">
+			<div style="width:35px;height:35px;padding:5px 0px">
+				<a href="http://www.gbin1.com/" title="当前首页模式"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/home.png" alt="首页风格"></a>
+			</div>
+			<div style="width:35px;height:35px;padding:5px 0px"><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" id="portalmode" title="设置首页为门户模式"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/portal.png" alt="门户" border="1"></a></div>
+			<div style="width:35px;height:35px;padding:5px 0px"><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" id="blogmode" title="设置首页为博客模式"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/blog.png" alt="博客" border="1"></a></div>
+			<div id="tipforhome" style="display:none;background:#505050;text-align:center;color:#FFF;padding: 3px 1px">保存</div>
+		</div>
+		<nav class="blognav">
+			
+<ul class="sf-menu sf-navbar sf-js-enabled sf-shadow">
+  <li><a href="http://www.gbin1.com/">GB&#8226;首页</a>
+  </li>
+  <li><a href="http://www.gbin1.com/bloghome.html">GB&#8226;博客</a>
+  </li>
+  <li><a href="http://www.gbin1.com/tutorials" class="sf-with-ul">专题&#8226;教程<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/tutorials/html5-tutorial">HTML5教程</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tutorials/gbcollection" class="sf-with-ul">GBin1月刊<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013march">2013年三月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013february">2013年二月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013january">2013年一月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012december">2012年十二月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012november">2012年十一月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012october">2012年十月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012september">2012年九月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012august">2012年八月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012july">2012年七月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2012june">2012年六月GBin1月刊</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/gbcollection/2013april">2013年四月GBin1月刊</a>
+      </li>
+    </ul>
+    </li>
+    <li><a href="http://www.gbin1.com/tutorials/hotspot">GBin1每周热点</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing" class="sf-with-ul">技术专题分享<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130418-knowledge-sharing-no3">技术专题003</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130412-knowledge-sharing-no2">技术专题002</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130408-knowledge-sharing-no1">技术专题001</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tutorials/knowledge-sharing/20130508-knowledge-sharing-no4">极客技术专题【004期】：Web开发人员的必备工具 - Emmet (Zen Coding)基本使用</a>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/technology/" class="selected sf-with-ul">技术&#8226;开发<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/technology/html">HTML</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/css">CSS</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/javascript">JS</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquery/" class="selected">jQuery开发</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquerytutorial">jQuery教程</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquerynews">jQuery插件</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jqueryhowto">jQ代码大全</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jqueryplugins">jQ插件大全</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/jquerymobile">jQ移动开发</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/onlinequiz" class="sf-with-ul">web技术测试<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120126basicphp">PHP基础知识小测验</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20111208webdevelopmentabbreviation">web开发技术缩写小测验，看看你知道多少？</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20111207html5elementsquiz">分享一个在线的HTML5元素在线测验 : HTML5 Element Quiz</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20111204basicquiz">CSS3基础知识小测验</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/jqueryquiz">jQuery技术在线小测试</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120417jquerybasequiz">jQuery小测试系列之jQuery基础知识</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120221quizhtml5ceyan">HTML5基本知识小测验</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120320sqlquiz">你真的了解SQL吗？ 试试SQL的小测验吧！</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/onlinequiz/20120414htmltagquiz">你真的很了解HTML标签吗？ 试试这个超异类的HTML标签小测验吧！</a>
+      </li>
+    </ul>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/javautilities">编程语言</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/seo">SEO</a>
+    </li>
+    <li><a href="http://www.gbin1.com/technology/democenter" class="sf-with-ul">在线演示<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/technology/democenter/20120905-register-with-password-strength">gbtags.com在线注册demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120820-jqueryplugin-noty">Nody demo for confirmation dialog</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120808javasript-yibiao-gaugejs">Gauge.js Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120911-wave-animation-navigation-by-jquery">Wave effect navigation menu demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120813-css-animation-timeline" class="sf-with-ul">GBtags.com demo for horizontal timeline<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120813-css-animation-timeline/index2.html">GBtags.com demo for vertial timeline</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120827-icon-font-usage">web font demo by gbin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120914-jqueryplugin-for-validation-happyjs">Happy.js Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar" class="sf-with-ul">jBar Plugin Demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar/index4.html">jBar Plugin Demo</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar/index2.html">jBar Plugin Demo</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121024-jqueryplugin-notification-banner-jbar/index3.html">jBar Plugin Demo</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120905-jquery-plugin-bigvideojs">BigVideo.js demo - jQuery Plugin for Big Background Video</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120831-fold-up-html-elements-like-paper">Fold up demo by gbin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/weather-forecast">Weather Forecast Demo with jQuery &amp; Yahoo APIs</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker" class="sf-with-ul">HTML5 Color Picker (canvas) Demo- Var 1 | Script Tutorials<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index2.html">HTML5 Color Picker (canvas) Demo- Var 2 | Script Tutorials</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index3.html">HTML5 Color Picker (canvas) Demo - Var 3 | Script Tutorials</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index5.html">HTML5 Color Picker (canvas) Demo- Var 5| Script Tutorials</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20121023-html-color-picker/index4.html">HTML5 Color Picker (canvas) Demo - Var 4 | Script Tutorials</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120619jquery-plugin-percentageloader">超酷HTML5进度条jQuery插件demo - percentageloader</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120918-javascript-create-pdf">jsPDF demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120615jquery-easy-page-guide">GBin1博客 - 用户向导demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120617jquery-css-fullscreen-slider">Fullscreen Slit Slider with CSS3 and jQuery Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120629create-mac-lion-scroll-bar">使用jQuery插件jScrollPane开发Mac OSX Lion风格的滚动条 Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120823-gauge-justgage-js">JustGage Demo By GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120728-iphone-style-nav">iOS风格导航Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120702refineslide">RefineSlide 幻灯演示Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120802-fixie-add-html-content">Fixie.js Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120812-animate-css">Car in a Cage: Animate.css Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120831-jqueryplugin-for-responsive-picture">A jQuery plugin for responsive images | Jquery Picture demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120918-flip-animal-photobook">A Photo Book Content Flip Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120730-css3-grid-system-responsiveaeon">Responsive Aeon Framework - Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120807-css3-flipswitch">ON/OFF Flipswitch Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120815-jqueryplugin-dragndrop-gridster">gridster.js Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120716-dribbble-feed-by-jquery-css3" class="sf-with-ul">如何使用jQuery, CSS3和javascript来访问Dribbble API - Demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120716-dribbble-feed-by-jquery-css3/dribbble-call.php">Dribbble-call</a>
+        </li>
+        <li><a href="http://www.gbin1.com/technology/democenter/20120716-dribbble-feed-by-jquery-css3/dribbble-call.jsp">Dribbble-call</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120925-javascript-database-taffydb">TaffyDB Demo for js database</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120612js-lib-for-event-timeline-chronoline">Chronoline.js Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120903-jquery-plugin-complexify">密码强度/Password Strength Demo by GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120906-super-cool-navigation-bar">Cool Navigation Menu Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120704-backbone-notifier">GBin1 Backbone.notifier Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120920-tooltips-jquery-plugin">Tooltip demo - jQuery Plugin for tooltips</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120524juicebox-lite">Juicebox Gallery Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120710-vanity-jquery-plugins">jSlider Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120720jsoupjquerysnatchpage" class="sf-with-ul">GBin1页面元素自动抓取工具 demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120720jsoupjquerysnatchpage/siteproxy.jsp">jsoup Demo</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120814-dojo-mobile">dojox/mobile Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120901-jquery-plugin-simple-slidershow">Really Simple Slideshow jQuery Plugin Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120907-jquery-plugin-smart-time-ago">Smart Time Ago Demo By GBin1.com</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121019-javascript-datepicker-pikaday">Pikaday Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121025-jquery-rss-feed-magazine">gbin1 rss feed magazine demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120726-html5-sortable-jqueryplugin">GBin1 HTML5 Sortable Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120926-jquery-slider-cycle2">Cycle2 Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120526jquery-plugin-alajax" class="sf-with-ul">ALAJAX DEMO<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/technology/democenter/20120526jquery-plugin-alajax/action.html">ALAJAX DEMO ACTION URL</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120924-responsive-layout-jquery-plugin-freetile">Freetile Demo for 1000 different size elements</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20121018-jquery-plugin-timing">Timing Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120731-kadaiji-html5-audio-player">Old School Cassette Player with HTML5 Audio Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120927-tilt-controlled-images-lenticularjs">Tilt controll image Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120622css-3d-button">Pure CSS Minimal Buttons Demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120905-animation-writing">An old letter demo</a>
+      </li>
+      <li><a href="http://www.gbin1.com/technology/democenter/20120813-image-animation-jquery-plugin-jzoopraxiscope">JZoopraxiscope Demo - jQuery plugin for making animations - gbin1.com</a>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/tools" class="sf-with-ul">设计&#8226;界面<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/tools/design">设计&#8226;模板</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/icon">图标&#8226;素材</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/photoshop">PS&#8226;工具</a>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/websitetemplate" class="sf-with-ul">网站&#8226;模板<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130510-website-templates">本周推荐10款免费的网站模板设计</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130111-free-template-for-bootstrap">免费的Bootstrap网站模版 - Bootstrapper</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130331-free-bootstrap-admin-template">免费的响应式bootstrap管理员后台界面主题 - Charisma</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20121016-free-admin-templates">分享12套超酷的后台管理员界面网站模板</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20120417blacksinglepage" class="sf-with-ul">分享一个黑色系的Single page单页面网站模板<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120417blacksinglepage/demo.html">Black single page demo</a>
+        </li>
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120417blacksinglepage/download.html">本地demo演示下载</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20121111-latest-new-website-templates">分享45套2011年和2012年的高质量免费网站模板</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130418-responsive-html5-templates">分享两套免费的超棒响应式HTML5网站模板</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20130405-free-website-templates">本周推荐9款免费的网站模板设计</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20120507free-wordpress-themes" class="sf-with-ul">分享3个超棒的免费wordpress主题: Splus, EMagazine和BAGONG<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120507free-wordpress-themes/download.html">本地素材demo主题下载</a>
+        </li>
+      </ul>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20121230-free-wordpress-templates">2012年12月免费的wordpress主题大荟萃</a>
+      </li>
+      <li><a href="http://www.gbin1.com/tools/websitetemplate/20120917-flash-template" class="sf-with-ul">免费网站模版：一个黑色系的公司网站模版（flash幻灯）<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplate/20120917-flash-template/download.html">本地模版demo下载</a>
+        </li>
+      </ul>
+      </li>
+    </ul>
+    </li>
+    <li><a href="http://www.gbin1.com/tools/websitetemplatedemo" class="sf-with-ul">Websitetemplatedemo<span class="sf-sub-indicator"> &#187;</span></a>
+    <ul style="display: none; visibility: hidden;">
+      <li><a href="http://www.gbin1.com/tools/websitetemplatedemo/20120917-flash-template" class="sf-with-ul">GBin1 Template Demo<span class="sf-sub-indicator"> &#187;</span></a>
+      <ul style="display: none; visibility: hidden;">
+        <li><a href="http://www.gbin1.com/tools/websitetemplatedemo/20120917-flash-template/about.html">GBin1 Template Demo</a>
+        </li>
+      </ul>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/internet" class="sf-with-ul">新闻&#8226;快讯<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/internet/news">科技&#8226;产品</a>
+    </li>
+    <li><a href="http://www.gbin1.com/internet/mobile">移动&#8226;应用</a>
+    </li>
+    <li><a href="http://www.gbin1.com/internet/people">人物&#8226;互联</a>
+    </li>
+  </ul>
+  </li>
+  <li><a href="http://www.gbin1.com/portfolio" class="sf-with-ul">关于&#8226;工具<span class="sf-sub-indicator"> &#187;</span></a>
+  <ul style="display: none; visibility: hidden;">
+    <li><a href="http://www.gbin1.com/portfolio/about">关于&#8226;我们</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/gbin1search">搜索&#8226;工具</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/friendlinks">友情&#8226;链接</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/case">案例&#8226;欣赏</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/submitarticle">文章&#8226;投递</a>
+    </li>
+    <li><a href="http://www.gbin1.com/portfolio/lastest.html">最新&#8226;文章</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+			<ul class="aux">
+				<li><a href="http://feed.feedsky.com/GBin1" target="_blank"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/rss.png" alt="RSS"></a></li>
+				<li><a href="http://list.qq.com/cgi-bin/qf_invite?id=3a04fd5eecec76c265e2c2daf4a68483bac85c55d333c17e" target="_blank"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/mail.png" alt="Mail"></a></li>
+				<li><a href="http://m.gbin1.com/" target="_blank"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/wap.png" alt="Mobile"></a></li>
+				<li><a href="http://weibo.com/1740310620/profile" target="_blank"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/sinaweibo.png" alt="weibo.com"></a></li>
+				<li><a href="http://www.gbin1.com/portfolio/submitarticle"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/article.png" alt="submit article"></a></li>
+			</ul>
+			<form class="search" action="">
+				<input type="text" name="s" id="s" class="formtip" value="">
+				<input type="image" class="btn" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/btn_search.gif" id="searchgbin1">
+			</form>
+		</nav>
+		<!-- google_ad_section_start --> 
+		<section class="blogbody">
+			<div id="pagebody">
+				<h1 class="title">jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统</h1>
+					<div style="border-left:3px solid #444;border-radius:5px;border-bottom:0px solid #333;width:687px;padding:5px 0 10px;height:20px;box-shadow:0px 0px 8px #333;margin-bottom:15px;">
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-4879975111677652";
+		/* ??×????á·ù468x15 */
+		google_ad_slot = "6708586713";
+		google_ad_width = 468;
+		google_ad_height = 15;
+		//-->
+		</script>
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/show_ads.js">
+		</script>
+	</div>
+
+				
+				
+				
+					
+<p>日期：2011/07/07&nbsp; 作者：Terry li - <a href="http://www.gbin1.com//">GBin1.com</a></p><p><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/title.jpg" alt="jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统"></p><p><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/gbin1schedule.htm" target="_blank" class="demo">在线演示</a> <a href="http://jsfiddle.net/6pB2g/" target="_blank" class="jsfiddle">在线调试</a> <a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/download.html" target="_blank" class="jsfiddle">本地下载</a></p>      <p>jQuery插件非常多，应用的场景也非常丰富，今天我这里给大家介绍一款非常实用的日历页面开发<strong>jQuery插件</strong> -     <strong>fullcalendar</strong>，目前最新版本是1.5.1，使用这款jQuery插件能够快速帮助你快速编程实现基于web的日历查看功能，大家可能都使用过outlook的日历项功能，使用日历界面能更方便的查看待办事项或者约会。开发过程快速方便。这个jQuery插件的文档也非常全。当然目前只有英文文档。不过这个jQuery插件支持多语言，对于我们这些使用jQuery的开发人员来说非常不错。</p>      <p>     在以前的公司web应用程序开发中，我曾经使用这个jQuery插件开发了公司内部的会议室预定系统，这里我简单的介绍一下<strong>fullcalendar</strong>的相关开发，并且实例讲解一下如何使用这个插件开发日历，其中会使用到     <strong>fullcalendar</strong>里相关的高级功能，例如，拖拽修改时间，生成个性化的会议室预定系统日历项内容。以上代码都是实际项目中使用的前台，大家如果需要可以直接修改使用，但请自己修改相关的jQuery代码。</p> <p><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/demo.jpg" alt="jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统"> </p>            <h3>项目需求：</h3>      <p>1.     需要在<strong>fullcalendar</strong>的原有界面上美化，这里我们使用<strong>jQueryUI</strong>来实现界面美化，因为<strong>fullcalendar</strong>可以很好的和jQueryUI无缝整合</p>      <p>2. 生成单独的日历项添加和查看功能，这里仍旧使用<strong>jQueryUI</strong>的dialog来实现</p>      <p>3. 因为是一个实际项目，需要数据验证，所以这里我们使用<strong>formVaildator</strong>插件实现</p>      <p>4. 添加一个 "转到某日"功能，     这个界面功能在<strong>Fullcalendar</strong>里没有，我们可以通过编程添加类似一个功能，其中调用了<strong>datepicker</strong>的一个addon，后面会介绍到</p>      <p>5. 周和日浏览可以自由的支持拖拽和移动，用来修改日期和时间</p>      <p>6. 浏览器支持： IE8,IE9,Chrome和Firefox，其它浏览器没测试，请自己针对性的修改js</p>      <h3>jQuery相关插件：</h3>      <p>1. <a href="http://www.google.com.hk/url?sa=t&source=web&cd=1&ved=0CCEQFjAA&url=http%3A%2F%2Farshaw.com%2Ffullcalendar%2F&rct=j&q=fullcalendar&ei=vAEDToK7PIH-vQO_lfHvDQ&usg=AFQjCNFn7CjTrWq-63B_b7V1Bf7IsYgSBQ&cad=rja">     <strong>fullcalendar</strong></a></p>      <p>提供Calendar功能</p>      <p>2. <a href="http://www.position-absolute.com/articles/jquery-form-validator-because-form-validation-is-a-mess/">     <strong>formValidator</strong></a></p>      <p>提供输入验证功能input validation</p>      <p>3. <strong><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/Timepicker%20Addon%20for%20jQuery%20UI%20Datepicker">Timepicker Addon     for jQuery UI Datepicker</a></strong></p>      <p>提供<strong>datepicker</strong>时间选择功能</p>      <h3>开发代码：</h3>      <p>导入相关jQuery插件类库，如下：</p> <pre>&lt;script type="text/javascript" src="js/jquery-1.4.2.min.js"&gt;&lt;/script&gt;  &lt;script type="text/javascript" src="js/jquery-ui-1.8.6.custom.min.js"&gt;&lt;/script&gt;  &lt;script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"&gt;&lt;/script&gt;  &lt;link rel="stylesheet" href="css/redmond/jquery-ui-1.8.1.custom.css"&gt;   &lt;!-- Jquery and Jquery UI --&gt;  &lt;script src="js/formValidator/js/jquery.validationEngine.js" type="text/javascript"&gt;&lt;/script&gt;  &lt;script src="js/formValidator/js/jquery.validationEngine-en.js" type="text/javascript"&gt;&lt;/script&gt;  &lt;link rel="stylesheet" href="js/formValidator/css/validationEngine.jquery.css" type="text/css" media="screen" charset="utf-8" /&gt;  &lt;!-- FullCalender --&gt;  &lt;link rel='stylesheet' type='text/css' href="js/fullcal/css/fullcalendar.css" /&gt; &lt;script type='text/javascript' src="js/fullcal/fullcalendar.js"&gt;&lt;/script&gt;</pre>      <p>生成日历主界面：</p> <pre style="width: 688px; border: 1px solid rgb(85, 85, 85); z-index: auto;">$('#calendar').fullCalendar({<br>          header:{<br>            right: 'prev,next today',<br>            center: 'title',<br>            left: 'month,agendaWeek,agendaDay'<br>          },<br>          theme: true,<br>          editable: true,<br>          allDaySlot : false,<br>          events:  function(start, end , callback){<br>          var events = [];<br>  ...          <br>          callback(events);<br>          },<br>  ...<br></pre>      <p>     以上代码将在id=calendar的div里生成一个日历，其中theme定义使用jQueryUI来生成界面，events主要定义生成的会议室预定系统日历项目，这里我们使用如下代码生成日历项，在实际开发过程中，我们可以在这里调用后台程序，或者使用其它方法生成数据，这里为了简单演示，我们使用js来生成需要的日历项目，代码如下：</p> <pre style="width: 688px; border: 1px solid rgb(85, 85, 85); z-index: auto;">var now = new Date();<br>for(var i=-10;i&lt;60;i++){<br>var evtstart = new Date(now.getFullYear() , now.getMonth() , (now.getDate()-i), now.getHours()-5, now.getMinutes(), now.getSeconds(), now.getMilliseconds());<br><br>var evtend = new Date(now.getFullYear() , now.getMonth() , (now.getDate()-i), now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());             <br><br>events.push({<br>  sid: 1,<br>  uid: 1,<br>  title: 'Daily Scrum meeting',<br>  start: evtstart,<br>  end: evtend,<br>  fullname: 'terry li',<br>  confname: 'Meeting 1',<br>  confshortname: 'M1',<br>  confcolor: '#ff3f3f',<br>  confid: 'test1',<br>  allDay: false,<br>  topic: 'Daily Scrum meeting',<br>  description : 'Daily Scrum meeting',<br>  id: 1,<br>});       <br>}           </pre>      <p>以上代码将生成一些日历项目，显示在日历中。</p> <pre> $('#calendar').fullCalendar({  <br>  ...<br>  ... <br>  dayClick: function(date, allDay, jsEvent, view) { // 定义了点击日历中日期格子的动作，这里将会调用jQueryUi的dialog生成创建新日历项的对话框<br>  ...<br> },<br> eventClick: function(event) {  // 定义了点击日历项的动作，这里将会调用jQueryUi的dialog显示日历项的内容<br> },<br>  ... <br></pre>      <p>接下来是fullcalendar的几个方法，用来设置会议室预定系统日历项的显示，分别是eventRender,     eventAfterRender,这里几个方法可以用来生成日历项的内容，具体如下：</p> <pre>  eventRender: function(event, element) {<br>		var fstart  = $.fullCalendar.formatDate(event.start, "HH:mm");<br>	  var fend  = $.fullCalendar.formatDate(event.end, "HH:mm");  <br>	  // Bug in IE8<br>	  //element.html('&lt;a href=#&gt;' + fstart + "-" +  fend + '&lt;div style=color:#E5E5E5&gt;' +  event.title + "&lt;/div&gt;&lt;/a&gt;");<br>	  },<br>	  eventAfterRender : function(event, element, view) {<br>		var fstart  = $.fullCalendar.formatDate(event.start, "HH:mm");<br>	  var fend  = $.fullCalendar.formatDate(event.end, "HH:mm");    <br>	  //element.html('&lt;a href=#&gt;&lt;div&gt;Time: ' + fstart + "-" +  fend + '&lt;/div&gt;&lt;div&gt;Room:' + event.confname + '&lt;/div&gt;&lt;div style=color:#E5E5E5&gt;Host:' +  event.fullname + "&lt;/div&gt;&lt;/a&gt;");<br>	  var confbg='';<br>	  if(event.confid==1){<br>		confbg = confbg + '&lt;span class="fc-event-bg"&gt;&lt;/span&gt;';<br>	  }else if(event.confid==2){<br>		confbg = confbg + '&lt;span class="fc-event-bg"&gt;&lt;/span&gt;';<br>	  }else if(event.confid==3){<br>		confbg = confbg + '&lt;span class="fc-event-bg"&gt;&lt;/span&gt;';<br>	  }else if(event.confid==4){<br>		confbg = confbg + '&lt;span class="fc-event-bg"&gt;&lt;/span&gt;';<br>	  }else if(event.confid==5){<br>		confbg = confbg + '&lt;span class="fc-event-bg"&gt;&lt;/span&gt;';<br>	  }else if(event.confid==6){<br>		confbg = confbg + '&lt;span class="fc-event-bg"&gt;&lt;/span&gt;';<br>	  }else{<br>		confbg = confbg + '&lt;span class="fc-event-bg"&gt;&lt;/span&gt;';<br>	  }<br>	  var titlebg =  '&lt;span class="fc-event-conf" style="background:'+  event.confcolor +'"&gt;' + event.confshortname + '&lt;/span&gt;';<br>	  if(event.repweeks&gt;0){<br>		titlebg = titlebg + '&lt;span class="fc-event-conf" style="background:#fff;top:0;right:15;color:#3974BC;font-weight:bold"&gt;R&lt;/span&gt;';<br>	  }<br>	  if(view.name=="month"){<br>		var evtcontent = '&lt;div class="fc-event-vert"&gt;&lt;a&gt;';<br>		evtcontent = evtcontent + confbg;<br>		evtcontent = evtcontent + '&lt;span class="fc-event-titlebg"&gt;' +  fstart + " - " +  fend + titlebg + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;span&gt;Room: ' +  event.confname + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;span&gt;Host: ' +  event.fullname + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;/a&gt;&lt;div class="ui-resizable-handle ui-resizable-e"&gt;&lt;/div&gt;&lt;/div&gt;';<br>		element.html(evtcontent);<br>	  }else if(view.name=="agendaWeek"){<br>		var evtcontent = '&lt;a&gt;';<br>		evtcontent = evtcontent + confbg;<br>		evtcontent = evtcontent + '&lt;span class="fc-event-time"&gt;' +  fstart + "-" +  fend + titlebg + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;span&gt;' +  event.confname + ' by ' + event.fullname + '&lt;/span&gt;';<br>		//evtcontent = evtcontent + '&lt;span&gt;' +  event.fullname + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;/a&gt;&lt;span class="ui-icon ui-icon-arrowthick-2-n-s"&gt;&lt;div class="ui-resizable-handle ui-resizable-s"&gt;&lt;/div&gt;&lt;/span&gt;';<br>		element.html(evtcontent);           <br>	  }else if(view.name=="agendaDay"){<br>		var evtcontent = '&lt;a&gt;';<br>		evtcontent = evtcontent + confbg;<br>		evtcontent = evtcontent + '&lt;span class="fc-event-time"&gt;' +  fstart + " - " +  fend + titlebg + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;span&gt;Room: ' +  event.confname + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;span&gt;Host: ' +  event.fullname + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;span&gt;Topic: ' +  event.topic + '&lt;/span&gt;';<br>		evtcontent = evtcontent + '&lt;/a&gt;&lt;span class="ui-icon ui-icon-arrow-2-n-s"&gt;&lt;div class="ui-resizable-handle ui-resizable-s"&gt;&lt;/div&gt;&lt;/span&gt;';<br>		element.html(evtcontent);               <br>	  }<br>	  }, <br></pre>      <p>以上定义了相关会议室预定系统日历项显示方式， 下面介绍会议室预定系统日历项拖动和<span class="trans">调整大小，代码片段如下：</span></p> <pre style="width: 1000px; border: 1px solid rgb(43, 153, 230); z-index: 1000;"><span class="js-variable">eventDragStart</span><span class="js-punctuation">: </span><span class="js-keyword">function</span><span class="js-punctuation">(</span><span class="js-variabledef">event</span><span class="js-punctuation">, </span><span class="js-variabledef">jsEvent</span><span class="js-punctuation">, </span><span class="js-variabledef">ui</span><span class="js-punctuation">, </span><span class="js-variabledef">view</span><span class="js-punctuation">) </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp;&nbsp;</span><span class="js-localvariable">ui</span><span class="js-punctuation">.</span><span class="js-property">helper</span><span class="js-punctuation">.</span><span class="js-property">draggable</span><span class="js-punctuation">(</span><span class="js-string">"option"</span><span class="js-punctuation">, </span><span class="js-string">"revert"</span><span class="js-punctuation">, </span><span class="js-atom">true</span><span class="js-punctuation">)</span><span class="js-punctuation">;</span><br><span class="js-punctuation">}</span><span class="js-punctuation">,</span><br><span class="js-variable">eventDragStop</span><span class="js-punctuation">: </span><span class="js-keyword">function</span><span class="js-punctuation">(</span><span class="js-variable">event</span><span class="js-punctuation">, </span><span class="js-variable">jsEvent</span><span class="js-punctuation">, </span><span class="js-variable">ui</span><span class="js-punctuation">, </span><span class="js-variable">view</span><span class="js-punctuation">) </span><span class="js-punctuation">{</span><span class="js-punctuation">}</span><span class="js-punctuation">,</span><br><span class="js-variable">eventDrop</span><span class="js-punctuation">: </span><span class="js-keyword">function</span><span class="js-punctuation">(</span><span class="js-variable">event</span><span class="js-punctuation">, </span><span class="js-variable">dayDelta</span><span class="js-punctuation">, </span><span class="js-variable">minuteDelta</span><span class="js-punctuation">, </span><span class="js-variable">allDay</span><span class="js-punctuation">, </span><span class="js-variable">revertFunc</span><span class="js-punctuation">, </span><span class="js-variable">jsEvent</span><span class="js-punctuation">, </span><span class="js-variable">ui</span><span class="js-punctuation">, </span><span class="js-variable">view</span><span class="js-punctuation">) </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp;&nbsp;</span><span class="js-keyword">if </span><span class="js-punctuation">(</span><span class="js-atom">1 </span><span class="js-operator">== </span><span class="js-atom">1 </span><span class="js-operator">|| </span><span class="js-atom">2 </span><span class="js-operator">== </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-variable">uid</span><span class="js-punctuation">) </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-keyword">var </span><span class="js-variable">schdata </span><span class="js-operator">= </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-variable">startdate</span><span class="js-punctuation">: </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-variable">start</span><span class="js-punctuation">,</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-variable">enddate</span><span class="js-punctuation">: </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-variable">end</span><span class="js-punctuation">,</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-variable">confid</span><span class="js-punctuation">: </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-variable">confid</span><span class="js-punctuation">,</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-variable">sid</span><span class="js-punctuation">: </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-variable">sid</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-punctuation">}</span><span class="js-punctuation">;</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-variable">identityService</span><span class="js-punctuation">.</span><span class="js-property">getToBeUpdatedConflictedScheduleDAO</span><span class="js-punctuation">(</span><span class="js-variable">schdata</span><span class="js-punctuation">, </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-property">callback</span><span class="js-punctuation">: </span><span class="js-keyword">function</span><span class="js-punctuation">(</span><span class="js-variabledef">data</span><span class="js-punctuation">) </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-keyword">if </span><span class="js-punctuation">(</span><span class="js-localvariable">data</span><span class="js-punctuation">.</span><span class="js-property">length </span><span class="js-operator">== </span><span class="js-atom">0</span><span class="js-punctuation">) </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-keyword">var </span><span class="js-variabledef">newschdata </span><span class="js-operator">= </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-property">sid</span><span class="js-punctuation">: </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-property">sid</span><span class="js-punctuation">,</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-property">startdate</span><span class="js-punctuation">: </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-property">start</span><span class="js-punctuation">,</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-property">enddate</span><span class="js-punctuation">: </span><span class="js-variable">event</span><span class="js-punctuation">.</span><span class="js-property">end</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-punctuation">}</span><span class="js-punctuation">;</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-variable">identityService</span><span class="js-punctuation">.</span><span class="js-property">updateScheduleByNewDateRange</span><span class="js-punctuation">(</span><span class="js-localvariable">newschdata</span><span class="js-punctuation">, </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-property">callback</span><span class="js-punctuation">: </span><span class="js-keyword">function</span><span class="js-punctuation">(</span><span class="js-variabledef">data</span><span class="js-punctuation">) </span><span class="js-punctuation">{</span><br><span class="whitespace">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span><span class="js-variable">alert</span><span class="js-punctuation">(</span><span class="js-string">"Thanks, reservation rescheduled successfully."</span><span class="js-punctuation">)</span><span class="js-punctuation">; </span><span class="js-comment">//window.location.reload();&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;});&nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}else{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;revertFunc();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;alert("Sorry, reservation cannot be  rescheduled.");&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;});&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}else{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;revertFunc();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;},&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;eventResizeStart:&nbsp;&nbsp;function( event, jsEvent, ui, view ) {&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;},&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;eventResize:  function(event,dayDelta,minuteDelta,revertFunc) {&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;if(1==1||2==event.uid){&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;var schdata =  {startdate:event.start, enddate:event.end, confid:event.confid,  sid:event.sid};&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}else{&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;revertFunc();&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}&nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;}&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;});</span></pre>      <p>以上代码如果需要详细说明，请大家参考官方文档，代码细节这里不再说明。     大家可以使用下面的演示代码运行一下。Fullcalendar是一个非常实用的日历插件，使用得当可以开发非常复杂的功能。例如，我们这里开发的会议室预定系统。强烈推荐！</p>            <p>相关资料： <a href="http://arshaw.com/fullcalendar/docs/">http://arshaw.com/fullcalendar/docs/&nbsp;</a></p>      <p>文章来源：<a href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统.htm">jQuery插件实战之Fullcalendar -     使用fullcalendar开发一个功能完整的富客户端会议室预定系统</a></p>
+
+					
+					<h2></h2>
+										
+				
+
+						
+				
+					
+				
+				
+				
+			</div>
+			<div id="mainads" style="padding-left:0px;margin: 10px 0px 10px 0px">
+				<div style="border:8px solid #333;width:336px;float:left;height:280px">
+					<script type="text/javascript">/*336*280 mainads*/ var cpro_id = 'u887260';</script><script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/c.js" type="text/javascript"></script>
+				</div>
+				<div style="border:8px solid #333;width:336px;float:right;height:280px">
+					<script type="text/javascript">/*336*280 mainads*/ var cpro_id = 'u887260';</script><script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/c.js" type="text/javascript"></script>
+				</div>
+				<div style="clear:both"></div>
+				<div style="border:8px solid #333;width:336px;float:left;height:280px">
+					<script type="text/javascript">
+	<!--
+	google_ad_client = "ca-pub-4879975111677652";
+	/* gbin1content */
+	google_ad_slot = "1026207602";
+	google_ad_width = 336;
+	google_ad_height = 280;
+	//-->
+</script>
+<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/show_ads.js">
+</script>
+
+
+				</div>
+				<div style="border:8px solid #333;width:336px;float:right;height:280px">
+					<script type="text/javascript">
+	<!--
+	google_ad_client = "ca-pub-4879975111677652";
+	/* gbin1content */
+	google_ad_slot = "1026207602";
+	google_ad_width = 336;
+	google_ad_height = 280;
+	//-->
+</script>
+<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/show_ads.js">
+</script>
+
+
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<h3>喜欢我们的文章请您与朋友分享:</h3>
+<!-- Baidu Button BEGIN -->
+    <div id="bdshare" class="bdshare_t bds_tools_32 get-codes-bdshare">
+        <a class="bds_qzone" title="分享到QQ空间" href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#"></a>
+        <a class="bds_tsina" title="分享到新浪微博" href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#"></a>
+        <a class="bds_tqq" title="分享到腾讯微博" href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#"></a>
+        <a class="bds_renren" title="分享到人人网" href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#"></a>
+        <span class="bds_more">?ü?à</span>
+		<a class="shareCount" href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" title="累计分享3次">3</a>
+    </div>
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=193972" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/bds_s_v2.js"></script>
+<script type="text/javascript" id="bdshell_js" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/shell_v2.js"></script>
+<script type="text/javascript">
+	document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+<div style="clear:both"></div>
+
+
+			<h3></h3>
+			
+			<h3>留言</h3>
+			
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+// <![CDATA[
+  if (window.tinyMCE) {
+    tinyMCE.init({
+      mode : "exact",
+      theme : "simple",
+      elements : "mcc_text",
+      language : "zh_cn"
+    });
+  }
+// ]]>
+</script>
+
+<form name="mcc_left3" method="post" action="">
+<input type="hidden" id="post_modulecode" name="post_modulecode" value="meshcmsmodule_left3">
+<input type="hidden" id="delId" name="delId" value="">
+<input type="hidden" id="showId" name="showId" value="">
+<input type="hidden" id="hideId" name="hideId" value="">
+<div>
+
+<section id="comments">
+
+
+ <ol>
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">lushuicongsheng</a>
+	</h3>
+    感谢分享  让程序员生活更美好
+		
+	  <div class="includedate">
+		2012-12-24 上午10:43
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">robertwang</a>
+	</h3>
+    您好,我想问一下,怎么下载的源码,添加事件怎么添加不了啊, 加个几个会议的默认值,也也没有效果阿,希望您能帮帮忙.
+		
+	  <div class="includedate">
+		2012-12-9 下午9:50
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">weit</a>
+	</h3>
+    请问我把周六和周日那两列背景色改下在哪能改 ？ 求指点 
+		
+	  <div class="includedate">
+		2012-11-22 上午11:39
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">leo</a>
+	</h3>
+    大哥，我也很需要你的源码，能否发一个到<a href="mailto:516277337@qq.com">516277337@qq.com</a>。谢谢了
+		
+	  <div class="includedate">
+		2012-5-28 下午3:31
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">Terry</a>
+	</h3>
+    我只在IE9和FF上调试，老IE的版本，我这里没有测试过。代码是自己项目中的，拷贝何来此说。有问题自己调试，都是现成的，有何意义？
+		
+	  <div class="includedate">
+		2012-4-25 下午1:29
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">e</a>
+	</h3>
+    这玩意肯定是你copy过来的，都没调试好。。。
+		
+	  <div class="includedate">
+		2012-4-25 上午9:47
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">Terry</a>
+	</h3>
+    由于有些朋友希望直接索到代码，我在文中加了一个演示下载链接，有兴趣的朋友，可以直接下载，谢谢！
+		
+	  <div class="includedate">
+		2012-2-21 下午4:48
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">qingwa</a>
+	</h3>
+    你好，我现在项目中急需这个东东，刚好看到您写的，能发一份源码给我吗？万分感谢了！  <a href="mailto:suguan125@163.com">suguan125@163.com</a>
+		
+	  <div class="includedate">
+		2012-2-21 下午4:03
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">陆巡2012</a>
+	</h3>
+    您好，我现在正在纠结一个关于我的日程的web功能，找了好久，发现你写的这个很适合，你能否发一份你的代码给我啊，万分感谢！我的邮箱地址是：<a href="mailto:zhousub@doone.com.cn">zhousub@doone.com.cn</a>
+		
+	  <div class="includedate">
+		2012-2-20 上午11:49
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">Terry</a>
+	</h3>
+    @xiaoxu ， 不好意思，没看到你的问题，你说的date位置没有太明白
+		
+	  <div class="includedate">
+		2012-2-10 下午2:09
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">xiaoxu</a>
+	</h3>
+    你好, 请问Date在日历中显示的位置在哪里修改，谢谢~~
+		
+	  <div class="includedate">
+		2011-12-27 下午4:47
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">xiaoxu</a>
+	</h3>
+    你好, 请问Date在日历中显示的位置在哪里修改，谢谢~~
+		
+	  <div class="includedate">
+		2011-12-27 下午4:45
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">jiji</a>
+	</h3>
+    是不是少了个dateCompare（）；比较日期大小？？
+		
+	  <div class="includedate">
+		2011-11-23 下午5:48
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">jiji</a>
+	</h3>
+    var cresult = compare2time($("#start").val(), $("#end").val());
+<br>怎么老说这行缺少对象！！
+<br>谢谢您~~
+		
+	  <div class="includedate">
+		2011-11-23 下午5:43
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">Ryan</a>
+	</h3>
+    能把代码完整的给你份吗？十分需要<a href="mailto:...278910500@qq.com">...278910500@qq.com</a>
+		
+	  <div class="includedate">
+		2011-11-18 下午2:05
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">咩咩叫的狼</a>
+	</h3>
+    这个插件有没有提供基于PC的桌面客户端开发接口？有没有方法，请指教。
+		
+	  <div class="includedate">
+		2011-11-14 下午3:04
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">J.CHE</a>
+	</h3>
+    你好，是否可以发份源码给我了？十分感谢，我刚好也要做个会议管理，可否发份给我参考，一直纠结在XGcalendar , dhtmlxScheduler , fullcalendar 中。太需要了，希望能得到你的帮助。 附： <a href="mailto:362838776@qq.com">362838776@qq.com</a>
+		
+	  <div class="includedate">
+		2011-11-10 下午3:10
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">Terry</a>
+	</h3>
+    这段代码上传时候被删除了，忘了删这行，已经去掉了，谢谢指出来
+		
+	  <div class="includedate">
+		2011-11-2 下午6:01
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">vincent</a>
+	</h3>
+    在线演示的时候，一直有这个报错，什么原因呢？
+<br>offset is not defined
+<br>[在此错误处中断] $("#meetinglist").offset({top:off...erHeight() +1, left:offset.left});
+<br>gbin1schedule.htm (第 357 行)
+<br>offset is not defined
+<br>[在此错误处中断] $("#meetinglist").offset({top:off...terHeight() +1, left:offset.left});
+<br>myspace.qq.com (第 358 行)
+<br>offset is not defined
+<br>[在此错误处中断] $("#meetinglist").offset({top:off...terHeight() +1, left:offset.left});
+<br>myspace.qq.com (第 358 行)
+<br>
+		
+	  <div class="includedate">
+		2011-10-22 下午4:57
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">Terry</a>
+	</h3>
+    可以改背景颜色啊，你自己用jQuery不行了吗
+		
+	  <div class="includedate">
+		2011-10-20 上午11:43
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">120634904@qq.com</a>
+	</h3>
+    我需要在制定日期改变背景颜色，像today那种，可是改变不了。
+		
+	  <div class="includedate">
+		2011-10-8 上午9:54
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">phon_cheung</a>
+	</h3>
+    公司pdm系统中有需要，可是怎么写也传不了数据，悲催中……
+		
+	  <div class="includedate">
+		2011-9-23 下午2:58
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">Terry</a>
+	</h3>
+    代码在演示和在线调试里都有啊，你看看就知道了
+		
+	  <div class="includedate">
+		2011-9-19 下午4:41
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">160294913@qq.com</a>
+	</h3>
+    你怎么没有贴代码，写的相当于没有写，我不知道你这个怎么用
+		
+	  <div class="includedate">
+		2011-9-13 下午5:15
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">w3cfun</a>
+	</h3>
+    fullcalendar的确不错，我也用过，赞一个
+		
+	  <div class="includedate">
+		2011-8-8 下午4:39
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">ppg</a>
+	</h3>
+    很不错的分享，不过IE6的确有些问题啊，能调试成功就更完美了啊
+		
+	  <div class="includedate">
+		2011-8-8 下午4:37
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">terry</a>
+	</h3>
+    是的，没有在IE6下测试, 这个产品不支持IE6, 不过理论上可以在IE6上调试成功。
+		
+	  <div class="includedate">
+		2011-6-28 下午5:04
+	  </div>
+			
+  </div>
+ </li>
+
+
+
+
+ <li>
+  <div class="commenter">
+	<img width="80" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/user.png">
+    <br>
+    
+
+  </div>
+
+  <div class="comment">
+	<h3>
+	
+	<a target="_blank" href="http://www.gbin1.com/">heye</a>
+	</h3>
+    你这个兼容性好像没考虑好哦。。。 在IE6下出不来。。  
+		
+	  <div class="includedate">
+		2011-6-28 上午8:59
+	  </div>
+			
+  </div>
+ </li>
+
+
+ </ol>
+
+
+ </section>
+
+ <div class="includeitem">
+  <div class="includetext">
+    <div><label for="mcc_name">您的姓名：</label></div>
+    <div><input type="text" name="mcc_name" id="mcc_name" class="formfields" maxlength="20" value=""></div>
+  </div>
+  
+  <div class="includeitem">
+    <div><label for="mcc_website">您的网站（可选）：</label></div>
+    <div><input type="text" name="mcc_website" id="mcc_website" class="formfields" maxlength="20" value=""></div>
+  </div>  
+  
+  <div class="includetext">
+    <div><label for="mcc_text">您的评论：</label></div>
+    <div><textarea name="mcc_text" id="mcc_text" class="formfields" rows="12" cols="80" style="height: 12em;"></textarea></div>
+  </div>
+  <div class="includetext">
+    
+    <div>
+      <label for="mcc_sum">壹柒 + 捌 =</label>
+      <input type="text" name="mcc_sum" id="mcc_sum" class="formfields" style="width: 3em;"> <span id="countthis">(请输入阿拉伯数字)</span>
+      <input type="hidden" id="n1" name="n1" value="4658">
+      <input type="hidden" id="n2" name="n2" value="1512">
+    </div>
+    
+    
+    <div style="margin-top: 1em; clear: both;">
+      <input id="postcomment" type="submit" class="button" value="提交评论">
+    </div>
+  </div>
+ </div>
+
+</div>
+</form>
+
+<script type="text/javascript">
+	
+	$(function(){
+
+		$('#postcomment').click(function(e){
+			var post_modulecode = $('#post_modulecode').val();
+			var countthis = $('#countthis');
+			var mcc_name = $('#mcc_name').val();
+			
+			if (window.tinyMCE) {
+			  tinyMCE.triggerSave();
+			}
+			
+			var mcc_text = $('#mcc_text').val();
+			
+			var mcc_sum = $('#mcc_sum').val();
+			
+			var mcc_website = $('#mcc_website').val();
+			
+			var n1 = $('#n1').val();
+			var n2 = $('#n2').val();
+			var gbdata = {post_modulecode:post_modulecode, mcc_name:encodeURIComponent(mcc_name), mcc_website:(mcc_website), mcc_text:encodeURIComponent(mcc_text), mcc_sum:mcc_sum, n1:n1, n2:n2};
+			if(mcc_text.trim()==''||mcc_name.trim()==''){
+				countthis.hide(0).css({color:'#5DB0E6'}).html('(请输入姓名和评论)').fadeIn(800);
+				return false;
+			}else if (mcc_sum != 25) {
+				countthis.hide(0).css({color:'#5DB0E6'}).html('(拜托，验证码计算错误)').fadeIn(800);
+				return false;
+			}else{
+				countthis.hide(0).css({color:'#5DB0E6'}).html('(留言添加中，请稍候...)').fadeIn(800);
+				
+				$.post(".", gbdata, function(data){
+					$('#nocomments').fadeOut(200);
+					var tmpurl = 'http://www.gbin1.com';
+					mcc_website = $.trim(mcc_website);
+					if(mcc_website!=''){
+						if(mcc_website.indexOf('http')==0){
+							tmpurl = mcc_website;
+						}else{
+							tmpurl = 'http://' + mcc_website;
+						}
+					}
+					
+					$('<li style="display:none"><div class="commenter"><img width="80" src="/gbin1/admin/modules/comments/user.png" /></div><div class="comment"><h3><a target="_blank" href="' + tmpurl + '">' + mcc_name + '</a>' + '</h3>' + mcc_text + '<div class="includedate">2013-5-14 上午8:36</div><div style="background:#222222;padding:5px;border-left:3px solid #333333;font-weight:normal;color:#5DB0E6;">感谢您的留言，你的留言将会被站长审核后显示，谢谢！</span></div></li>').appendTo($('#comments ol')).slideDown();
+					
+					/*$('#comments ol').append('<li><div class="commenter"><img width="80" src="/gbin1/admin/modules/comments/user.png" /></div><div class="comment"><h3><a target="_blank" href="' + tmpurl + '">' + mcc_name + '</a>' + '</h3>' + mcc_text + '<div class="includedate">2013-5-14 上午8:36</div><div style="background:#222222;padding:5px;border-left:3px solid #333333;font-weight:normal;color:#5DB0E6;">感谢您的留言，你的留言将会被站长审核后显示，谢谢！</span></div></li>');*/
+					countthis.fadeOut(500);
+					$('#mcc_sum').val('');
+				}); 
+				
+			}
+			e.preventDefault();
+		});
+		
+		var delcom = $('.delcomment');
+		var showcom = $('.showcomment');
+		var hidecom = $('.hidecomment');
+		
+		var filename = delcom.data('file');
+		var delId = delcom.data('file');
+		var showId = delcom.data('file');
+		var hideId = delcom.data('file');
+		delcom.click(function(e){
+			var gbdata = {delId:delId};
+			$.post(".", gbdata, function(data){
+				alert('deleted' + filename);
+				delcom.parent('div').find('img').css({border:'5px solid #5DB0E6'});
+			});
+			e.preventDefault();
+		});
+		
+		showcom.click(function(e){
+			var gbdata = {showId:showId};
+			$.post(".", gbdata, function(data){
+				alert('show:' + filename);
+				showcom.html('Done!');
+			});
+			e.preventDefault();
+		});
+		
+		hidecom.click(function(e){
+			var gbdata = {hideId:hideId};
+			$.post(".", gbdata, function(data){
+				alert('hide:' + filename);
+				hidecom.html('Done!');
+			});
+			e.preventDefault();
+		});
+	});
+</script>
+
+
+			
+		</section>
+
+		<aside class="bloglist">
+			阅读选项
+			<ul id="floatingmenu">
+				<li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" id="flipcolor">反色阅读</a></li>
+				<li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" id="zoomfont">字体缩放</a></li>
+				<li><a href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" id="fullscreen">宽屏阅读</a></li>
+			</ul>
+			<div style="clear:both"></div>
+			
+			<div style="position: relative; margin: 0px 0px 5px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; background-color: rgb(48, 48, 48); padding: 0px; text-align: right; color: rgb(43, 153, 230); font-weight: normal; font-size: 12px; text-shadow: rgb(43, 153, 230) 0px 0px 20px; border-left-width: 2px; border-left-style: solid; border-left-color: rgb(43, 153, 230); border-right-width: 2px; border-right-style: solid; border-right-color: rgb(43, 153, 230); opacity: 0.8; top: 0px; background-position: initial initial; background-repeat: initial initial;">GBin1 ads&nbsp;</div><div class="blogads" style="margin-bottom: 20px;">
+	<div style="height:250px;padding:0;margin:0;">
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-4879975111677652";
+		/* 250x250 */
+		google_ad_slot = "6576088851";
+		google_ad_width = 250;
+		google_ad_height = 250;
+		//-->
+		</script>
+		<script type="text/javascript" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/show_ads.js">
+		</script>
+	</div>
+</div>
+
+<div style="position: relative; margin: 0px 0px 5px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; background-color: rgb(48, 48, 48); padding: 0px; text-align: right; color: rgb(43, 153, 230); font-weight: normal; font-size: 12px; text-shadow: rgb(43, 153, 230) 0px 0px 20px; border-left-width: 2px; border-left-style: solid; border-left-color: rgb(43, 153, 230); border-right-width: 2px; border-right-style: solid; border-right-color: rgb(43, 153, 230); opacity: 0.8; top: 0px; background-position: initial initial; background-repeat: initial initial;">GBin1 ads&nbsp;</div><div class="blogads" style="margin-bottom: 20px;">
+
+</div>
+
+<div style="position: relative; margin: 0px 0px 5px; border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; background-color: rgb(48, 48, 48); padding: 0px; text-align: right; color: rgb(43, 153, 230); font-weight: normal; font-size: 12px; text-shadow: rgb(43, 153, 230) 0px 0px 20px; border-left-width: 2px; border-left-style: solid; border-left-color: rgb(43, 153, 230); border-right-width: 2px; border-right-style: solid; border-right-color: rgb(43, 153, 230); opacity: 0.8; top: 0px; background-position: initial initial; background-repeat: initial initial;">GBin1 ads&nbsp;</div><div class="blogads" style="margin-bottom: 20px;">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab" id="Player_547900a2-e00e-4d4e-8662-6497fde4be12" width="250px" height="250px"> <param name="wmode" value="opaque"> <param name="movie" value="http://ws.assoc-amazon.cn/widgets/q?rt=tf_ssw&amp;ServiceVersion=20070822&amp;MarketPlace=CN&amp;ID=V20070822%2FCN%2Fgb05-23%2F8003%2F547900a2-e00e-4d4e-8662-6497fde4be12&amp;Operation=GetDisplayTemplate"><param name="quality" value="high"><param name="bgcolor" value="#FFFFFF"><param name="allowscriptaccess" value="always"><embed src="http://ws.assoc-amazon.cn/widgets/q?rt=tf_ssw&amp;ServiceVersion=20070822&amp;MarketPlace=CN&amp;ID=V20070822%2FCN%2Fgb05-23%2F8003%2F547900a2-e00e-4d4e-8662-6497fde4be12&amp;Operation=GetDisplayTemplate" id="Player_547900a2-e00e-4d4e-8662-6497fde4be12" wmode="transparent" quality="high" bgcolor="#ffffff" name="Player_547900a2-e00e-4d4e-8662-6497fde4be12" allowscriptaccess="always" type="application/x-shockwave-flash" align="middle" height="250px" width="250px"></object> <noscript>&lt;A HREF="http://ws.assoc-amazon.cn/widgets/q?rt=tf_ssw&amp;ServiceVersion=20070822&amp;MarketPlace=CN&amp;ID=V20070822%2FCN%2Fgb05-23%2F8003%2F547900a2-e00e-4d4e-8662-6497fde4be12&amp;Operation=NoScript"&gt;Amazon.cn Widgets&lt;/A&gt;</noscript>
+</div>
+
+
+
+
+
+
+
+
+			
+			目录
+			
+				
+
+
+
+
+
+
+
+
+<ul>
+     <li><a href="http://www.gbin1.com/technology/jquery/20120313ajaxforjquerypart4">jQuery类库新手使用指南之AJAX方法 - 第四部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120309ajaxforjquerypart3">jQuery类库新手使用指南之AJAX方法 - 第三部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120308ajaxforjquerypart2">jQuery类库新手使用指南之AJAX方法 - 第二部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120307ajaxforjquerypart1">jQuery类库新手使用指南之AJAX方法 - 第一部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120229writingawesomejqueryplugins">10个帮助你创建超棒jQuery插件的小技巧</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120222jqueryxingneng">8个能够有效帮助你提高jQuery代码性能（performance）的技巧</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120203learnjqueryin30days">30天学习jQuery - Email订阅在线免费视频教学课程</a></li><li><a href="http://www.gbin1.com/technology/jquery/2011122010codingtechniques">分享10个实用的jQuery/CSS代码书写技巧，窍门和点子</a></li><li><a href="http://www.gbin1.com/technology/jquery/2011121910javascriptjquerymvctutorials">分享16个javascript&amp;jQuery的MVC教程</a></li><li><a href="http://www.gbin1.com/technology/jquery/2012121510jqueryimageloaderpluginstutorialsgenerators">分享10个jQuery图片加载插件和教程及其生成器</a></li><li><a href="http://www.gbin1.com/technology/jquery/2011121211imagehovertutorialsforjquery">分享7个最新的使用jQuery及其CSS实现的悬浮特效</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111205bestjquerypluginandcsstricks">分享30个绝对让你动心的jQuery插件和CSS3小技巧</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111202jquerypluginforinfinitescrolling">分享几个超酷的jQuery插件帮助你快速实现页面无限滚动功能</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111201tencooljqueryeffects">分享10个jQuery实现的超酷动态特效教程和插件</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111126jquery10animationtutorials">分享10个超酷的jQuery动画教程</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111116jquery15tips">15个值得开发人员关注的jQuery开发技巧和心得</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111116improveusabilitybyhtml5css3jquery">使用HTML5,CSS3和jQuery来增强网站的用户体验和使用乐趣</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111115beautifyyourjscode">使用beautify.js来美化你的jQuery代码</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111113supercoolportfolio">分享一个非常酷的个人作品集展示效果：Sven Prim</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111026randomcoolwebdevjsonthenet">分享2011年10月网上随机搜集的超酷超有趣的web开发和Javascript代码</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111026formvalidationwithjqueryvalidationengine">GBin1教程：使用jQuery插件jquery.validationEngine实现表单验证功能</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111009timelineplugin">GBin1推荐：使用时间轴插件Timelinr创建超酷jQuery时间轴(Time line)</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111008quicktipforjquerynewbsstopjumpinginthepool">GBin1分享：jQuery新手技巧之“避免过多使用$('.someclass')”</a></li><li><a href="http://www.gbin1.com/technology/jquery/20111002jquery17preview">GBin1分享：jQuery1.7 Beta 预览</a></li><li><a href="http://www.gbin1.com/technology/jquery/20110928goodfirefoxpluginforjquerydevfirequer">GBin1分享：Firebug最佳jQuery开发伴侣Firequery</a></li><li><a href="http://www.gbin1.com/technology/jquery/20110923mustfollowblogsforjquery">GBin1分享：20个值得开发人员关注的jQuery技术网站和博客</a></li><li><a href="http://www.gbin1.com/technology/jquery/20110922googletrends4jquery">GBin1分享：Google趋势中显示jQuery是最流行的JS框架</a></li><li><a href="http://www.gbin1.com/technology/jquery/20110922jquery164whatisnew">GBin1分享：jQuery1.6.4小版本新特性</a></li><li><a href="http://www.gbin1.com/technology/jquery/20110808jqueryanimation">GBin1分享一个jQuery制作的电视动画效果</a></li><li><a href="http://www.gbin1.com/technology/jquery/prosconsframeworks">使用框架开发的优势和劣势</a></li><li><a href="http://www.gbin1.com/technology/jquery/integrationgooglesearchwithjquery">使用jQuery整合Google搜索API到站内搜索</a></li><li><a href="http://www.gbin1.com/technology/jquery/usefuljquerytechniquestutorials4">分享40个实用的jQuery用户界面UI设计技巧及教程：第四部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/usefuljquerytechniquestutorials3">分享40个实用的jQuery用户界面UI设计技巧及教程：第三部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/usefuljquerytechniquestutorials2">分享40个实用的jQuery用户界面UI设计技巧及教程：第二部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/usefuljquerytechniquestutorials">分享40个实用的jQuery用户界面UI设计技巧及教程：第一部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/50jquerycodesnippetsforbetterjavascript2">分享50个使你成为高级javascript开发者的jQuery的代码开发技巧 - 第二部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/50jquerycodesnippetsforbetterjavascript">分享50个使你成为高级javascript开发者的jQuery的代码开发技巧 - 第一部分</a></li><li><a href="http://www.gbin1.com/technology/jquery/tutorial4jqueryuiautocomplete">jQueryUI实战之Autocomplete组件的JSONP使用</a></li><li><a href="http://www.gbin1.com/technology/jquery/2010bestjqueryplugin">2010最佳jQuery插件</a></li><li><a href="http://www.gbin1.com/technology/jquery/devgadgetforwindowsbyjquery">jQuery开发之windows边栏小工具开发（Gadget development）-
+    windows小工具实现的电话薄查询工具</a></li><li><a href="http://www.gbin1.com/technology/jquery/jqueryapitutorial">实例漫游jQuery API</a></li><li><a href="http://www.gbin1.com/technology/jquery/jqueryperformance11tips">11个在jQuery代码编写中应该注意的性能原则 - jQuery Performance Rules</a></li><li><a href="http://www.gbin1.com/technology/jquery/jquerydebuggerixeidt">jQuery的图形化互动设计工具-IxEdit</a></li><li><a href="http://www.gbin1.com/technology/jquery/201125jquerynewplugin">2011 25新jQuery插件</a></li><li><a href="http://www.gbin1.com/technology/jquery/sourceviewerbyjquery">使用jQuery来改善源代码浏览体验</a></li><li><a href="http://www.gbin1.com/technology/jquery/jqueryscrolltop">jQuery插件之滚动到最顶端(Scoll back to top)- jQuery Scroll to Top Control    v1.1</a></li><li><a href="http://www.gbin1.com/technology/jquery/jquerygooglemaps">jQuery插件之Google地图快速实现 - Jmapping - jQuery的地图插件</a></li><li><a href="http://www.gbin1.com/technology/jquery/10usefuljquerysnippets">10个实用的jQuery代码片段</a></li><li><a href="http://www.gbin1.com/technology/jquery/floatingsharingmenu">使用jQuery快速创建一个滚动悬浮的分享菜单</a></li><li><a href="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统.htm">jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统</a></li><li><a href="http://www.gbin1.com/technology/jquery/2011newtojquery">2011版jQuery新手入门（新手教程）</a></li><li><a href="http://www.gbin1.com/technology/jquery/learningjquerywebsites">最佳JQuery学习网站</a></li><li><a href="http://www.gbin1.com/technology/jquery/jquerytop5charting">5个最顶级jQuery图表类库插件-Charting plugin</a></li><li><a href="http://www.gbin1.com/technology/jquery/15daysjquerytutorial">15天学jQuery</a></li><li><a href="http://www.gbin1.com/technology/jquery/20130326-quick-tips-jquery-back-to-top">开发小技巧：超简单的“回到顶端”按钮实现</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120419jqueryeventhandler">jQuery的事件处理方法介绍 - bind()，live()，delegate()，on()</a></li><li><a href="http://www.gbin1.com/technology/jquery/20130406-hover-auto-resize-menu">jQuery鼠标悬浮菜单自动缩放效果</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120620jqueryfunctioncollection">GBin1在线实例帮助你更好的了解jQuery功能特性（一）</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120323flashstylemenu">分享5个超酷flash样式的jQuery导航和菜单</a></li><li><a href="http://www.gbin1.com/technology/jquery/20130410-jquery-enable-disable-scroll">开发小技巧： 如何在jQuery中禁用或者启用滚动事件.scroll</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120509jquery-plugin-dev-rules">分享14个jQuery插件开发人员易犯的错误</a></li><li><a href="http://www.gbin1.com/technology/jquery/20130401-jquery-control-elements-one-by-one">开发小技巧：jQuery来循环控制一系列的元素对象的行为</a></li><li><a href="http://www.gbin1.com/technology/jquery/20121127-jquery-code-for-forms">不可错过的10个超棒jQuery表单操作代码片段</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120621jqueryfunctioncollection">GBin1在线实例帮助你更好的了解jQuery功能特性（二）</a></li><li><a href="http://www.gbin1.com/technology/jquery/20130328-jquery-iframe-content-height">开发小技巧：jQuery处理自适应内容高度的iframe</a></li><li><a href="http://www.gbin1.com/technology/jquery/20121026-free-jquery-ui-themes">不容错过的精选免费jQuery UI主题大荟萃</a></li><li><a href="http://www.gbin1.com/technology/jquery/20121103-latest-jquery-plugin">2012年最新的12款超棒jQuery插件</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120921-build-your-own-jquery">如何自己动手编译自定义版本的最新jQuery类库？</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120622jqueryfunctioncollection">GBin1在线实例帮助你更好的了解jQuery功能特性（三）</a></li><li><a href="http://www.gbin1.com/technology/jquery/20120607jquery-plus-plus">jQuery的实用特性扩展类库：jQuery++</a></li>
+    </ul>
+
+			
+			
+			
+			
+			<iframe width="100%" height="800" class="share_self" frameborder="0" scrolling="no" src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/index.htm"></iframe>
+		</aside>
+		<!-- google_ad_section_end -->
+		
+		<section class="ads">
+
+			<span class="advertise">
+	<a href="http://www.gbin1.com/">GBin1:官方QQ群</a>
+</span>
+<div id="qqgroup" style="margin-bottom:10px"></div>
+
+<span class="advertise">
+	<a target="_blank" href="http://click.union.360buy.com/JdClick/?unionId=26917&t=1&to=http://www.360buy.com/">京东商城</a>
+</span>
+<a href="http://click.union.360buy.com/JdClick/?unionId=26917&t=1&to=http://www.360buy.com/" target="_blank">
+
+</a>
+
+<span class="advertise">
+	<a target="_blank" href="http://www.vancl.com/?source=jjfat&sourcesuninfo=ad-0-1-133-0-1">凡客诚品</a>
+</span>
+<a href="http://www.vancl.com/?source=jjfat&sourcesuninfo=ad-0-1-133-0-1" target="_blank">
+
+</a>
+
+<span class="advertise">
+	<a target="_blank" href="http://www.amazon.cn/?&tag=gb05-23&camp=288&creative=4428&linkCode=ez&adid=073CXFD2WGRBYW1YWKCW&&ref-refURL=http%3A%2F%2Fwww.gbin1.com%2Ftechnology%2Fjquerynews%2F20121222-ios-style-app-folder%2Findex.html">卓越亚马逊</a>
+</span>
+<div style="padding:0px 0px 0px 1px">
+
+</div>
+
+
+
+
+
+		</section>
+		<!-- weibo.com widget -->
+	</div> 
+</div>
+</div>
+<footer>
+	<div class="footwrap">
+		<div class="col4 container">	
+			<section style="margin-left:120px;margin-top:75px"><a href="http://weibo.com/1740310620/profile" target="_blank"><!--<h3 style="margin-left:0;color:#fff">访问我的微博...</h3>--><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/weibo.png"></a></section>
+			<section>
+				<img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/about.png"><!--关于-->
+				<ul>
+					<li><a href="http://www.gbin1.com/portfolio/about/">关于我们</a></li>
+					<li><a href="http://www.gbtags.com/" target="_blank">极客标签</a></li>
+					<li><a href="http://www.gbin1.com/portfolio/friendlinks/index.html">友情链接</a></li>
+					<li><a href="http://weibo.com/1740310620/profile">新浪微博</a></li>
+					<li><a href="http://www.triplifes.com/">互联旅途</a></li>
+				</ul>
+			</section>
+			<section>
+				<img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/subscribe.png"><!--订阅-->
+				<ul>
+					<li><a href="http://feed.feedsky.com/GBin1">GBin1订阅</a></li>
+					<li><a href="http://list.qq.com/cgi-bin/qf_invite?id=3a04fd5eecec76c265e2c2daf4a68483bac85c55d333c17e">Email订阅</a></li>
+					<li><a href="http://m.gbin1.com/">手机阅读</a></li>
+					<li><a href="http://o.sdo.com/dy.ext?o=TXpFMU9UQT0K%0A">盛大微杂志</a></li>
+				</ul>
+			</section>
+			<section>
+				<!--合作-->
+				<ul>
+					<li><a href="http://www.gbin1.com/portfolio/submitarticle">文章投递</a></li>
+					<li><a href="mailto:people2net@gmail.com">广告合作</a></li>
+				</ul>
+			</section>
+			<div class="copyright">
+				&#169; Copyright 2010 · All Rights Reserved&nbsp;|&nbsp;<a href="http://www.miitbeian.gov.cn/">京ICP备11048772号-1</a>&nbsp;|&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">署名-非商业性使用-相同方式共享 2.5 中国大陆 (CC BY-NC-SA 2.5)</a>&nbsp;| <a href="http://www.gbin1.com/">GBin1中文互联</a>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+	<div style="right:10px;width: 1190px;position:relative;margin:0 auto;">
+		<div style="text-align:right;padding-top:0px;color:#666">
+			除特别声明外, 本站所有内容皆为原创，且基于创作共享的 署名-非商业使用-相同方式分享 2.5 协议发布. 转载时请务必以超链接形式标明文章出处和作者信息					
+		</div>
+	</div>
+</footer>
+
+<!-- google and baidu code -->
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fd999331ad5ea0c0930f3aa7c3bda9fc1' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/h.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19118450-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end of google and baidu code --> 
+
+<div id="msgwrap" style="width: 350px; bottom: 20px;">
+		<span id="title">今日推荐</span><a id="msgclose" href="http://www.gbin1.com/technology/jquery/devappwithfullcanlendar/index.html#" style="background-image: url(http://www.gbin1.com/gbin1/themes/gbin1_3column/images/x_icon.png);">&nbsp;</a>
+		<div id="latest"><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/tools/design/20130514-design-freebie">来自极客标签10款最新设计素材-系列四</a>
+  </h3><h3 class="includetitle" style="display: block;">
+    <a href="http://www.gbin1.com/technology/javascript/20130513-gbtags-front-end-demo">推荐10款来自极客标签的超棒前端特效[第四期]</a>
+  </h3><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/tools/design/20130512-apps-wireframe-wire">免费的线框的套件 - Wired 1.0</a>
+  </h3><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/technology/javascript/20130511-console-log-format-js">帮助你格式化console.log输出的javascript类库 - Log</a>
+  </h3><h3 class="includetitle" style="display: none;">
+    <a href="http://www.gbin1.com/tools/websitetemplate/20130510-website-templates">本周推荐10款免费的网站模板设计</a>
+  </h3></div>
+</div>
+
+
+<div id="topcontrol" style="position: fixed; bottom: 125px; right: 0px; opacity: 1; cursor: pointer;" title="Scroll Back to Top"><img src="./jQuery插件实战之fullcalendar（日历插件） - 使用fullcalendar开发一个功能完整的富客户端会议室预定系统_files/scrolltop.png"></div></body></html>
