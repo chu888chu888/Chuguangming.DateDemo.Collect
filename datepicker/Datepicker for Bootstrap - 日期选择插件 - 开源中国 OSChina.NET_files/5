@@ -1,0 +1,4 @@
+
+    document.write("<div class='ad-project-detail'><ul></ul></div>");
+document.write('<style>.job-ads{margin: 0;font-size:13px;font-family:/"Microsoft YaHei/", 微软雅黑, Verdana, sans-serif, 宋体;}.job-ads li{}.ad-index li{width:24%;margin:3px 3px;display:inline-block;_zoom:1;_display:inline;float:left;}.ad-job-index{margin: 5px 0;}.ad-job-index li{width:172px;margin:3px 1px;display:inline-block;_zoom:1;_display:inline;float:left;}.ad-career-right{margin-bottom: 10px;}.ad-career-right li{line-height: 24px;height: 24px;overflow: hidden;vertical-align: top;}.ad-career-detail li{line-height: 24px;height: 24px;overflow: hidden;vertical-align: top;display:inline-block;_zoom:1;_display:inline;width:48%;margin-right: 1%;}.ad-project-detail li{line-height: 24px;height: 24px;overflow: hidden;vertical-align: top;}.QuestionListRight .Mod {margin: 0;}</style>');
+
